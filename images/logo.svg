@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <linearGradient id="circleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3f69aa" />
+      <stop offset="100%" stop-color="#5e8eff" />
+    </linearGradient>
+    <filter id="dropShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" />
+      <feOffset dx="0" dy="2" result="offsetblur" />
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.2" />
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Main circle with border -->
+  <circle cx="50" cy="50" r="40" fill="white" stroke="#3f69aa" stroke-width="3" filter="url(#dropShadow)" />
+  
+  <!-- Dashed circle inside -->
+  <circle cx="50" cy="50" r="30" fill="none" stroke="#8e44ad" stroke-width="2" stroke-dasharray="5,5" opacity="0.7" />
+  
+  <!-- Light bulb icon in center -->
+  <path d="M50 25c-8.284 0-15 6.716-15 15 0 5.967 3.492 11.104 8.538 13.545 0.995 0.482 1.62 1.471 1.62 2.55v2.117C45.158 58.76 45 59.37 45 60v5c0 2.757 2.243 5 5 5s5-2.243 5-5v-5c0-0.63-0.158-1.24-0.158-1.788v-2.117c0-1.079 0.625-2.068 1.62-2.55C61.508 51.104 65 45.967 65 40c0-8.284-6.716-15-15-15z" fill="#8e44ad" opacity="0.8" />
+  <path d="M47.5 65h5v2.5h-5z" fill="#8e44ad" />
+  <circle cx="50" cy="40" r="2" fill="white" />
+</svg>

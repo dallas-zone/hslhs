@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource Portal | Healing Streams Dallas Zone</title> <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/portal-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="images/logo.png">
+    <meta name="description" content="Access all Pre-HSLHS, HSLHS Program, and Post-HSLHS resources through the Healing Streams Live Healing Services - Dallas Zone portal.">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR-ANALYTICS-ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-YOUR-ANALYTICS-ID');
+    </script>
+</head>
+<body class="loading">
+    <div class="theme-toggle">
+        <button id="theme-switch" aria-label="Toggle dark/light mode">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+    
+    <div id="portal-container" class="portal-container"> <a href="index.html" class="portal-back-link">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+        
+        <header class="portal-header">
+            <div class="animated-logo">
+                <img src="images/logo.png" alt="Healing Streams Logo" class="logo">
+                <div class="logo-aura"></div>
+            </div>
+            <h1>Resource Portal</h1> <p>Access pre-program, program, and post-program materials for Healing Streams</p>
+        </header>
+        
+        <div class="portal-card">
+            <div id="form-container" class="form-container">
+                <h2>Complete Your Information</h2>
+                <p>Please provide your details to access these resources</p>
+                
+                <form id="resource-form" class="access-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required class="form-control" placeholder=" ">
+                            <label for="email">Email Address</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <select id="role" name="role" required class="form-control">
+                                <option value="" disabled selected></option>
+                                <option value="core_team_member">Core Team Member</option>
+                                <option value="hslhs_church_chairperson">HSLHS Church Chairperson</option>
+                                <option value="zonal_sub_committee_manager">Zonal Sub-Committee Manager</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <label for="role">Your Role</label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <span>Access Resources</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+            </div>
+            
+            <div id="resources-container" class="resources-section" style="display: none;">
+                
+                <div class="search-container">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="resource-search" placeholder="Search all resources...">
+                        <button class="clear-search" id="clear-search">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <section id="pre-hslhs-section" class="portal-phase-section">
+                    <h2 class="section-title">Pre-HSLHS Resources</h2>
+                    <div id="pre-hslhs-wrapper" class="resources-wrapper">
+                        </div>
+                </section>
+
+                <section id="hslhs-program-section" class="portal-phase-section">
+                    <h2 class="section-title">HSLHS Program Resources</h2>
+                    <div id="hslhs-program-wrapper" class="resources-wrapper">
+                        </div>
+                </section>
+
+                <section id="post-hslhs-section" class="portal-phase-section">
+                    <h2 class="section-title">Post-HSLHS Resources</h2>
+                    <div id="post-hslhs-wrapper" class="resources-wrapper">
+                        </div>
+                </section>
+                
+                <div id="no-results" class="no-results">
+                    <div class="no-results-content">
+                        <i class="fas fa-search"></i>
+                        <h3>No resources found</h3>
+                        <p>We couldn't find any resources matching your search. Please try a different search term.</p>
+                        <button id="reset-search" class="reset-button">
+                            <i class="fas fa-redo-alt"></i> Show All Resources
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="return-button">
+                    <a href="index.html">
+                        <i class="fas fa-home"></i> Return to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="site-footer">
+        <div class="footer-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#0A0A0A" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,165.3C384,171,480,149,576,128C672,107,768,85,864,96C960,107,1056,149,1152,154.7C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </div>
+
+        <div class="footer-main">
+            <div class="footer-container">
+                <div class="footer-brand">
+                    <img src="images/logo.png" alt="Healing Streams Logo" class="footer-logo">
+                    <h3>Healing Streams Dallas Zone</h3>
+                    <p>A healing ministry of Pastor Chris Oyakhilome DSc. DSc. DD</p>
+                </div>
+                
+                <div class="footer-links-grid">
+                    <div class="footer-column">
+                        <h4>Quick Links</h4>
+                        <ul class="footer-links">
+                             <li><a href="portal.html"><i class="fas fa-chevron-right"></i> Resource Portal</a></li>
+                             <li><a href="admin.html"><i class="fas fa-chevron-right"></i> Admin Dashboard</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Connect With Us</h4>
+                        <ul class="footer-links">
+                            <li><a href="https://kingschat.online/conversations/NjIxMDgyOWUwODQ0ZGYwMDA3YTEzZjgx" target="_blank"><img src="images/kingschat.png" alt="KingsChat" class="kingschat-logo"> KingsChat</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul class="footer-links">
+                            <li><a href="http://mystreamspace.org" target="_blank"><i class="fas fa-external-link-alt"></i> MyStreamSpace</a></li>
+                            <li><a href="http://healingstreams.tv/" target="_blank"><i class="fas fa-external-link-alt"></i> Healing Streams TV</a></li>
+                            <li><a href="https://cellministry.tv" target="_blank"><i class="fas fa-external-link-alt"></i> Cell Ministry</a></li>
+                            <li><a href="https://httnmagazine.org/" target="_blank"><i class="fas fa-external-link-alt"></i> HTTN Magazine</a></li>
+                            <li><a href="https://prayerclouds.org/app/pstlanr" target="_blank"><i class="fas fa-external-link-alt"></i> Prayer Clouds</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>More Resources</h4>
+                        <ul class="footer-links">
+                            <li><a href="https://www.nowthatyouarebornagain.org/" target="_blank"><i class="fas fa-book"></i> New Believers</a></li>
+                            <li><a href="https://app.rhapsodyofrealities.org/" target="_blank"><i class="fas fa-book-open"></i> Rhapsody of Realities</a></li>
+                            <li><a href="http://herald.healingstreams.tv" target="_blank"><i class="fas fa-bullhorn"></i> Be a HERALD</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-container">
+                <div class="footer-copyright">
+                    <p>&copy; <span id="current-year"></span> Healing Streams Live Healing Services. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <div id="toast-container" class="toast-container"></div>
+    
+    <script src="vendor/form.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/download-handler.js"></script>
+    <script src="js/portal.js"></script>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('resource-search');
+        const clearSearchBtn = document.getElementById('clear-search');
+        const resetSearchBtn = document.getElementById('reset-search');
+        const noResultsDiv = document.getElementById('no-results');
+        
+        // Wrappers for each section
+        const sectionWrappers = ['pre-hslhs-wrapper', 'hslhs-program-wrapper', 'post-hslhs-wrapper'];
+        const sectionContainers = ['pre-hslhs-section', 'hslhs-program-section', 'post-hslhs-section'];
+
+        let resourceData = []; // This will store all resource items' data
+        let debounceTimer;
+
+        function initializeResourcesData() {
+            resourceData = []; // Clear previous data
+            sectionWrappers.forEach(wrapperId => {
+                const wrapperElement = document.getElementById(wrapperId);
+                if (wrapperElement) {
+                    const items = Array.from(wrapperElement.querySelectorAll('.resource-item'));
+                    items.forEach(item => {
+                        const titleEl = item.querySelector('.resource-title');
+                        const descEl = item.querySelector('.resource-description');
+                        const typeEl = item.querySelector('.resource-type');
+                        
+                        const title = titleEl ? titleEl.textContent : '';
+                        const description = descEl ? descEl.textContent : '';
+                        const type = typeEl ? typeEl.textContent : '';
+
+                        resourceData.push({
+                            element: item,
+                            title: title,
+                            description: description,
+                            type: type,
+                            category: item.closest('.resource-category'),
+                            section: item.closest('.portal-phase-section'),
+                            searchableText: `${title} ${description} ${type}`.toLowerCase(),
+                            originalContent: {
+                                title: title,
+                                description: description
+                            }
+                        });
+                    });
+                }
+            });
+        }
+
+        // Call this after portal.js has rendered all resources
+        // We'll use a MutationObserver on the main #resources-container or a specific wrapper
+        // For simplicity, assuming portal.js rendering completes, then this can be more robustly triggered.
+        // A more robust way is for portal.js to dispatch an event after rendering.
+        // For now, a small timeout or an observer is good.
+
+        const resourcesContainerObserver = new MutationObserver((mutationsList, observer) => {
+            // Check if resource items are now present in all expected wrappers
+            let allWrappersPopulated = sectionWrappers.every(id => document.getElementById(id) && document.getElementById(id).querySelector('.resource-item'));
+            
+            if (allWrappersPopulated || document.querySelector('.resource-item')) { // Fallback if only some populate
+                initializeResourcesData();
+                console.log("Resources initialized for search:", resourceData.length);
+                observer.disconnect(); // Stop observing once initialized
+            }
+        });
+        
+        const mainResourcesContainer = document.getElementById('resources-container');
+        if (mainResourcesContainer) {
+             resourcesContainerObserver.observe(mainResourcesContainer, { childList: true, subtree: true });
+        }
+
+
+        function levenshteinDistance(a, b) {
+            const matrix = [];
+            for (let i = 0; i <= b.length; i++) { matrix[i] = [i]; }
+            for (let j = 0; j <= a.length; j++) { matrix[0][j] = j; }
+            for (let i = 1; i <= b.length; i++) {
+                for (let j = 1; j <= a.length; j++) {
+                    if (b.charAt(i - 1) === a.charAt(j - 1)) {
+                        matrix[i][j] = matrix[i - 1][j - 1];
+                    } else {
+                        matrix[i][j] = Math.min(matrix[i - 1][j - 1] + 1, matrix[i][j - 1] + 1, matrix[i - 1][j] + 1);
+                    }
+                }
+            }
+            return matrix[b.length][a.length];
+        }
+
+        function calculateScore(resource, searchTerms) {
+            let score = 0;
+            const text = resource.searchableText;
+            if (resource.title.toLowerCase().includes(searchTerms)) { score += 100; }
+            if (resource.type.toLowerCase() === searchTerms) { score += 80; }
+            if (resource.description.toLowerCase().includes(searchTerms)) { score += 60; }
+            
+            const words = searchTerms.split(/\s+/);
+            words.forEach(word => {
+                if (word.length < 3) return;
+                if (resource.title.toLowerCase().includes(word)) { score += 50; }
+                if (resource.description.toLowerCase().includes(word)) { score += 30; }
+                if (resource.type.toLowerCase().includes(word)) { score += 40; }
+            });
+            
+            const titleWords = resource.title.toLowerCase().split(/\s+/);
+            words.forEach(searchWord => {
+                if (searchWord.length < 3) return;
+                titleWords.forEach(titleWord => {
+                    if (titleWord.length < 3) return;
+                    const distance = levenshteinDistance(searchWord, titleWord);
+                    if (distance <= Math.max(2, Math.floor(titleWord.length / 3))) {
+                        score += 20 * (1 - distance / titleWord.length);
+                    }
+                });
+            });
+            return score;
+        }
+
+        function highlightMatches(text, searchTerms) {
+            if (!searchTerms || searchTerms.length < 2) return text;
+            const searchWords = searchTerms.split(/\s+/).filter(word => word.length >= 2);
+            if (searchWords.length === 0) return text;
+            const regexPattern = searchWords.map(word => word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
+            const regex = new RegExp(`(${regexPattern})`, 'gi');
+            return text.replace(regex, '<span class="highlighted">$1</span>');
+        }
+
+        function restoreOriginalContent() {
+            resourceData.forEach(resource => {
+                const titleEl = resource.element.querySelector('.resource-title');
+                const descEl = resource.element.querySelector('.resource-description');
+                if (titleEl) titleEl.textContent = resource.originalContent.title;
+                if (descEl) descEl.textContent = resource.originalContent.description;
+            });
+        }
+
+        function filterResources(searchTerm) {
+            if (!searchTerm || searchTerm.trim() === '') {
+                resetSearch();
+                return;
+            }
+            searchTerm = searchTerm.toLowerCase().trim();
+            
+            const scoredResources = resourceData.map(resource => ({ ...resource, score: calculateScore(resource, searchTerm) }));
+            scoredResources.sort((a, b) => b.score - a.score);
+            
+            const minimumScore = 10; 
+            const matchingResources = scoredResources.filter(resource => resource.score > minimumScore);
+            
+            restoreOriginalContent();
+            resourceData.forEach(resource => resource.element.style.display = 'none');
+            
+            let anyMatchFound = false;
+            if (matchingResources.length > 0) {
+                anyMatchFound = true;
+                matchingResources.forEach(resource => {
+                    resource.element.style.display = 'flex';
+                    const titleEl = resource.element.querySelector('.resource-title');
+                    const descEl = resource.element.querySelector('.resource-description');
+                    if (titleEl) titleEl.innerHTML = highlightMatches(resource.originalContent.title, searchTerm);
+                    if (descEl) {
+                         const desc = resource.originalContent.description;
+                         const truncatedDesc = desc.length > 100 ? desc.substring(0, 100) + '...' : desc;
+                         descEl.innerHTML = highlightMatches(truncatedDesc, searchTerm);
+                    }
+                });
+            }
+            
+            noResultsDiv.style.display = anyMatchFound ? 'none' : 'flex';
+
+            // Show/hide categories and sections
+            sectionContainers.forEach(sectionId => {
+                const sectionElement = document.getElementById(sectionId);
+                if (!sectionElement) return;
+
+                let sectionHasVisibleItems = false;
+                const categoriesInSection = sectionElement.querySelectorAll('.resource-category');
+                
+                categoriesInSection.forEach(category => {
+                    const itemsInCategory = category.querySelectorAll('.resource-item');
+                    let categoryHasVisibleItems = false;
+                    itemsInCategory.forEach(item => {
+                        if (item.style.display !== 'none') {
+                            categoryHasVisibleItems = true;
+                        }
+                    });
+                    category.style.display = categoryHasVisibleItems ? 'block' : 'none';
+                    if (categoryHasVisibleItems) {
+                        sectionHasVisibleItems = true;
+                    }
+                });
+                sectionElement.style.display = sectionHasVisibleItems ? 'block' : 'none';
+            });
+
+
+            if (!document.getElementById('highlight-styles')) {
+                const style = document.createElement('style');
+                style.id = 'highlight-styles';
+                style.textContent = `
+                    .highlighted { background-color: rgba(4, 71, 171, 0.15); color: var(--primary-color); font-weight: bold; padding: 0 2px; border-radius: 3px; }
+                    .dark-theme .highlighted { background-color: rgba(30, 144, 255, 0.25); }
+                `;
+                document.head.appendChild(style);
+            }
+        }
+
+        function debouncedSearch() {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => {
+                const searchTerm = searchInput.value.trim();
+                filterResources(searchTerm);
+                clearSearchBtn.style.display = searchTerm.length > 0 ? 'block' : 'none';
+            }, 250); // Slightly increased debounce time
+        }
+
+        function resetSearch() {
+            restoreOriginalContent();
+            resourceData.forEach(resource => {
+                resource.element.style.display = 'flex';
+                if (resource.category) resource.category.style.display = 'block';
+                if (resource.section) resource.section.style.display = 'block';
+            });
+            noResultsDiv.style.display = 'none';
+        }
+
+        if (searchInput) {
+            searchInput.addEventListener('input', debouncedSearch);
+            searchInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    filterResources(searchInput.value.trim());
+                }
+            });
+        }
+
+        if (clearSearchBtn) {
+            clearSearchBtn.style.display = 'none';
+            clearSearchBtn.addEventListener('click', function() {
+                searchInput.value = '';
+                resetSearch();
+                this.style.display = 'none';
+                searchInput.focus();
+            });
+        }
+
+        if (resetSearchBtn) {
+            resetSearchBtn.addEventListener('click', function() {
+                searchInput.value = '';
+                resetSearch();
+                clearSearchBtn.style.display = 'none';
+            });
+        }
+    });
+    </script>
+    <style>
+        /* Styles for the new portal phase sections */
+        .portal-phase-section {
+            margin-bottom: 50px; /* Space between Pre, Program, and Post sections */
+            padding: 20px;
+            background-color: rgba(var(--card-background-rgb, 255, 255, 255), 0.5); /* Slightly transparent card background */
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--card-shadow);
+        }
+        .dark-theme .portal-phase-section {
+             background-color: rgba(var(--dark-card-background-rgb, 30, 30, 30), 0.7);
+        }
+        .portal-phase-section .section-title {
+            text-align: left; /* Align section titles to the left */
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-color);
+            font-size: 2rem; /* Larger section titles */
+        }
+         .dark-theme .portal-phase-section .section-title {
+             border-bottom-color: var(--secondary-color);
+         }
+
+        /* Ensure .resources-wrapper has some padding if categories are directly inside */
+        .resources-wrapper {
+            padding-top: 10px;
+        }
+    </style>
+</body>
+</html>

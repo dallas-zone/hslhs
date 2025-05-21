@@ -1,0 +1,1429 @@
+/* ==== Base Styles & CSS Variables ==== */
+:root {
+    /* Primary Colors */
+    --primary-color: #0D21A1; /* Updated from Royal Blue to deeper blue */
+    --secondary-color: #D1B000; /* Updated from bright gold to dimmer yellow */
+    --accent-color: #C4A900; /* Updated accent */
+    
+    /* Text Colors */
+    --text-color: #333;
+    --light-text: #fff;
+    --muted-text: #777;
+    
+    /* Background Colors */
+    --background-color: #f8faff;
+    --card-background: #fff; /* Used for deriving RGBA in portal-styles.css for .portal-phase-section */
+    --footer-bg: #0A0A0A; /* Near black for footer */
+    --footer-bg-secondary: #14141a; /* Slightly lighter for contrast areas */
+    --modal-overlay: rgba(0, 0, 0, 0.7);
+    
+    /* Shadows */
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --card-shadow: 0 15px 35px rgba(13, 33, 161, 0.12);
+    --text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+    /* Border Radius */
+    --border-radius-sm: 8px;
+    --border-radius: 12px;
+    --border-radius-lg: 20px;
+    
+    /* Transitions */
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    --transition-fast: all 0.25s ease;
+    
+    /* Layout */
+    --max-width: 1200px;
+    --portal-card-width: 380px;
+    --section-spacing: 100px;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, #0D21A1, #1934C4);
+    --gradient-secondary: linear-gradient(135deg, #D1B000, #C4A900);
+    --gradient-accent: linear-gradient(135deg, #C4A900, #B09800);
+    --gradient-pre-hslhs: linear-gradient(135deg, #0D21A1, #1934C4);
+    --gradient-hslhs-program: linear-gradient(135deg, #D1B000, #C4A900);
+    --gradient-post-hslhs: linear-gradient(135deg, #C4A900, #B09800);
+
+    /* New Gradient Start Colors for Portal Phase Section Borders */
+    --gradient-pre-hslhs-start: #0D21A1;
+    --gradient-hslhs-program-start: #D1B000;
+    --gradient-post-hslhs-start: #C4A900;
+}
+
+/* Dark Theme Variables */
+.dark-theme {
+    --primary-color: #3347C4; /* Brighter blue for dark theme */
+    --secondary-color: #D1B000; /* Dimmer yellow */
+    --accent-color: #C4A900; /* Dimmer amber */
+    
+    --text-color: #e1e1e1;
+    --light-text: #fff;
+    --muted-text: #a0a0a0;
+    
+    --background-color: #121212;
+    --card-background: #1e1e1e; /* Used for deriving RGBA in portal-styles.css for .portal-phase-section */
+    --footer-bg: #0a0a14;
+    --footer-bg-secondary: #14141a;
+    
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    --card-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    
+    --gradient-primary: linear-gradient(135deg, #3347C4, #0D21A1);
+    --gradient-secondary: linear-gradient(135deg, #D1B000, #B09800);
+    --gradient-accent: linear-gradient(135deg, #C4A900, #B09800);
+    --gradient-pre-hslhs: linear-gradient(135deg, #3347C4, #0D21A1);
+    --gradient-hslhs-program: linear-gradient(135deg, #D1B000, #B09800);
+    --gradient-post-hslhs: linear-gradient(135deg, #C4A900, #B09800);
+
+    /* New Gradient Start Colors for Portal Phase Section Borders - Dark Theme */
+    --dark-gradient-pre-hslhs-start: #3347C4;
+    --dark-gradient-hslhs-program-start: #D1B000; /* Stays the same as light theme for this example, adjust if needed */
+    --dark-gradient-post-hslhs-start: #C4A900; /* Stays the same as light theme for this example, adjust if needed */
+}
+
+/* ==== Reset & Global Styles ==== */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(13, 33, 161, 0.05) 0%, transparent 30%),
+        radial-gradient(circle at 90% 80%, rgba(209, 176, 0, 0.05) 0%, transparent 30%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+body.loading {
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: var(--transition-fast);
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+ul {
+    list-style-type: none;
+}
+
+button, .submit-btn {
+    cursor: pointer;
+    border: none;
+    background: var(--gradient-primary);
+    color: var(--light-text);
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(13, 33, 161, 0.3);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+button:hover, .submit-btn:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 7px 20px rgba(13, 33, 161, 0.4);
+}
+
+button:active, .submit-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 10px rgba(13, 33, 161, 0.3);
+}
+/* Add ripple effect to buttons */
+button::after, .submit-btn::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.3) 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform 0.5s, opacity 0.8s;
+}
+
+button:active::after, .submit-btn:active::after {
+    transform: scale(0, 0);
+    opacity: 0.3;
+    transition: 0s;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.3;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+}
+
+h2 {
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    font-weight: 700;
+}
+
+h3 {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-weight: 600;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+.highlight {
+    color: var(--secondary-color);
+    position: relative;
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    width: 100%;
+}
+
+section {
+    padding: 80px 0;
+}
+
+/* ==== Theme Toggle ==== */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+#theme-switch {
+    background: transparent;
+    color: var(--text-color);
+    box-shadow: none;
+    padding: 10px;
+    border-radius: 50%;
+    border: 2px solid rgba(209, 176, 0, 0.2);
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+#theme-switch:hover {
+    background: rgba(209, 176, 0, 0.1);
+    transform: rotate(20deg);
+}
+
+.dark-theme #theme-switch i {
+    transform: rotate(220deg);
+}
+
+/* ==== Header & Logo ==== */
+.site-header {
+    text-align: center;
+    padding: 80px 0 50px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.animated-logo {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto; /* Ensure proper centering */
+}
+
+.logo {
+    width: 100%;
+    max-width: 120px;
+    border-radius: 50%;
+    filter: drop-shadow(0 5px 10px rgba(13, 33, 161, 0.2));
+    transition: var(--transition);
+    z-index: 2;
+    margin: 0 auto; /* Ensure proper centering */
+}
+
+.logo:hover {
+    transform: scale(1.05) rotate(5deg);
+}
+
+.logo-aura {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(209, 176, 0, 0.2) 0%, transparent 70%);
+    animation: pulse 4s infinite ease-in-out;
+    z-index: 1;
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.9); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+    100% { transform: scale(0.9); opacity: 0.5; }
+}
+
+.site-header h1 {
+    margin-bottom: 15px;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    position: relative;
+    display: inline-block;
+    text-shadow: var(--text-shadow);
+}
+
+.site-header h1::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 4px;
+    background: var(--gradient-primary);
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.tagline {
+    font-size: clamp(1.1rem, 3vw, 1.25rem);
+    color: var(--muted-text);
+    font-weight: 400;
+    max-width: 600px;
+    margin: 20px auto 0;
+}
+
+/* ==== Email Collection Form ==== */
+.email-collection {
+    max-width: 550px;
+    margin: 0 auto 80px;
+    padding: 40px 30px;
+    background: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    text-align: center;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 1s ease-out;
+}
+
+.email-collection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--gradient-secondary);
+}
+
+.email-collection h2 {
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.email-collection p {
+    margin-bottom: 30px;
+    color: var(--muted-text);
+}
+
+.access-form {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.form-control {
+    width: 100%;
+    padding: 16px 20px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    font-size: 16px;
+    transition: var(--transition-fast);
+    background-color: rgba(248, 250, 255, 0.5);
+    color: var(--text-color);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(13, 33, 161, 0.1);
+    background-color: rgba(255, 255, 255, 0.8);
+}
+.form-group label {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    background-color: var(--card-background);
+    padding: 0 8px;
+    font-size: 16px;
+    color: var(--muted-text);
+    pointer-events: none;
+    transition: var(--transition-fast);
+}
+
+.form-control:focus ~ label,
+.form-control:not(:placeholder-shown) ~ label {
+    top: 0;
+    font-size: 14px;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.dark-theme .form-control {
+    background-color: rgba(30, 30, 30, 0.8);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .form-group label {
+    background-color: var(--card-background);
+}
+
+.dark-theme .form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(51, 71, 196, 0.1);
+    background-color: rgba(40, 40, 40, 0.9);
+}
+
+.submit-btn {
+    width: 100%;
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.submit-btn i {
+    font-size: 14px;
+    transition: var(--transition);
+}
+
+.submit-btn:hover i {
+    transform: translateX(4px);
+}
+
+/* ==== Portal Grid ==== */
+.portal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin: 0 auto;
+    perspective: 1000px;
+    max-width: 1200px;
+}
+
+.portal-item {
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    text-align: center;
+    transition: var(--transition);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transform-style: preserve-3d;
+    transform: translateZ(0);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.portal-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--card-background);
+    z-index: -1;
+}
+
+.portal-item::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: linear-gradient(45deg, transparent, rgba(13, 33, 161, 0.03), transparent);
+    z-index: -2;
+    transform: scale(0.9);
+    filter: blur(20px);
+    transition: var(--transition);
+    border-radius: var(--border-radius);
+}
+
+.portal-item:hover {
+    transform: translateY(-15px) rotateX(5deg) rotateY(-5deg);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.portal-item:hover::after {
+    transform: scale(1);
+}
+
+.portal-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--gradient-primary);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0.9;
+    z-index: 10;
+}
+
+.card-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.portal-item:hover .card-image {
+    transform: scale(1.05);
+}
+
+.content-wrapper {
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.portal-item h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    transition: var(--transition);
+    color: var(--primary-color);
+}
+
+.portal-item:hover h2 {
+    transform: translateY(2px);
+}
+
+.portal-item .card-shine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.05) 25%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0.05) 75%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    z-index: 10;
+    opacity: 0;
+    transition: var(--transition);
+    pointer-events: none;
+}
+
+.portal-item:hover .card-shine {
+    opacity: 1;
+}
+
+/* Card text description that appears on hover */
+.portal-item .card-description {
+    color: var(--muted-text);
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 10px 0 25px;
+    transition: var(--transition);
+}
+
+/* Card CTA button */
+.portal-item .card-cta {
+    margin-top: auto;
+    transition: var(--transition);
+    opacity: 0.9;
+    transform: translateY(5px);
+}
+
+.portal-item:hover .card-cta {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card-cta-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background: var(--gradient-primary);
+    color: white;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(13, 33, 161, 0.2);
+    transition: var(--transition);
+    width: 100%;
+}
+
+.card-cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(13, 33, 161, 0.3);
+    color: white;
+}
+
+/* Portal-specific styles */
+.portal-item.pre-hslhs {
+    border-top: 5px solid var(--gradient-pre-hslhs-start, #0D21A1); /* Fallback to primary if var not defined */
+}
+
+.portal-item.pre-hslhs .card-cta-button {
+    background: var(--gradient-pre-hslhs);
+}
+
+.portal-item.pre-hslhs .portal-badge {
+    background: var(--gradient-pre-hslhs);
+}
+
+.portal-item.hslhs-program {
+    border-top: 5px solid var(--gradient-hslhs-program-start, #D1B000); /* Fallback to secondary if var not defined */
+}
+
+.portal-item.hslhs-program .card-cta-button {
+    background: var(--gradient-hslhs-program);
+}
+
+.portal-item.hslhs-program .portal-badge {
+    background: var(--gradient-hslhs-program);
+}
+
+.portal-item.post-hslhs {
+    border-top: 5px solid var(--gradient-post-hslhs-start, #C4A900); /* Fallback to accent if var not defined */
+}
+
+.portal-item.post-hslhs .card-cta-button {
+    background: var(--gradient-post-hslhs);
+}
+
+.portal-item.post-hslhs .portal-badge {
+    background: var(--gradient-post-hslhs);
+}
+/* ==== Quick Stats Section ==== */
+.quick-stats {
+    display: flex;
+    justify-content: space-between;
+    margin: 60px auto;
+    max-width: 800px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    flex: 1;
+    min-width: 180px;
+    background: var(--card-background);
+    padding: 25px 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.stat-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--gradient-primary);
+}
+
+.stat-item i {
+    font-size: 28px;
+    margin-bottom: 15px;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.stat-count {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: var(--muted-text);
+    font-weight: 500;
+}
+
+/* ==== Enhanced Testimonials Section ==== */
+.testimonials {
+    padding: 80px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(to bottom, var(--background-color), rgba(248, 250, 255, 0.5));
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.dark-theme .testimonials {
+    background: linear-gradient(to bottom, var(--background-color), rgba(20, 20, 20, 0.5));
+}
+
+.testimonials h2 {
+    margin-bottom: 50px;
+    position: relative;
+    display: inline-block;
+    color: var(--primary-color);
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.testimonials h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--gradient-secondary);
+    border-radius: 2px;
+}
+
+.testimonial-carousel {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    min-height: 280px;
+    padding: 20px 0;
+}
+
+.testimonial-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.8s ease;
+    pointer-events: none;
+}
+
+.testimonial-slide.active {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+}
+
+.testimonial-content {
+    background: var(--card-background);
+    padding: 40px 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    border-left: 5px solid var(--secondary-color);
+}
+
+.testimonial-content::before {
+    content: '"';
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    font-size: 120px;
+    line-height: 0;
+    font-family: Georgia, serif;
+    color: rgba(209, 176, 0, 0.1);
+    z-index: 0;
+}
+
+.testimonial-content p {
+    font-size: 18px;
+    line-height: 1.7;
+    position: relative;
+    z-index: 1;
+    font-style: italic;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.testimonial-author {
+    font-weight: 600;
+    position: relative;
+    display: block;
+    text-align: right;
+    color: var(--primary-color);
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.testimonial-role {
+    display: block;
+    font-size: 14px;
+    color: var(--muted-text);
+    text-align: right;
+    font-style: normal;
+}
+
+.carousel-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+.carousel-control {
+    width: 46px;
+    height: 46px;
+    background: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 10px rgba(13, 33, 161, 0.2);
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: var(--transition-fast);
+    font-size: 18px;
+}
+
+.carousel-control:hover {
+    background: var(--secondary-color);
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(209, 176, 0, 0.3);
+}
+
+.carousel-indicators {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(13, 33, 161, 0.2);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.indicator.active {
+    width: 25px;
+    border-radius: 10px;
+    background: var(--primary-color);
+}
+
+/* Responsive adjustments for testimonials */
+@media (max-width: 768px) {
+    .testimonial-carousel {
+        min-height: 320px;
+    }
+    
+    .testimonial-content {
+        padding: 30px 20px;
+    }
+    
+    .testimonial-content p {
+        font-size: 16px;
+    }
+}
+
+/* ==== ENHANCED FOOTER STYLES ==== */
+.site-footer {
+    position: relative;
+    margin-top: auto;
+    color: var(--light-text);
+}
+
+.footer-wave {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 120px;
+    overflow: hidden;
+    transform: translateY(1px);
+}
+
+.footer-wave svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.footer-main {
+    background-color: var(--footer-bg);
+    padding: 60px 0 40px;
+}
+
+.footer-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.footer-brand {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.footer-logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    object-fit: cover;
+    margin: 0 auto 15px;
+    display: block;
+    transition: var(--transition);
+}
+
+.footer-logo:hover {
+    transform: rotate(10deg);
+    border-color: var(--primary-color);
+}
+
+.footer-brand h3 {
+    color: var(--light-text);
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+}
+
+.footer-brand p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+.footer-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-column h4 {
+    color: var(--light-text);
+    font-size: 18px;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 12px;
+    font-weight: 600;
+}
+
+.footer-column h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: var(--gradient-primary);
+    border-radius: 3px;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-links li {
+    position: relative;
+    transition: var(--transition-fast);
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 15px;
+    transition: var(--transition-fast);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 0;
+}
+
+.footer-links a:hover {
+    color: var(--light-text);
+    transform: translateX(5px);
+}
+
+.footer-links a i {
+    font-size: 14px;
+    color: var(--secondary-color);
+    transition: var(--transition-fast);
+    width: 20px;
+    text-align: center;
+}
+
+.footer-links a:hover i {
+    transform: translateX(2px);
+}
+
+.footer-bottom {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-bottom .footer-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-copyright {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    text-align: center; 
+}
+
+.footer-copyright p {
+    margin: 0;
+}
+
+.social-links { /* This class seems unused in current HTML, but styles are here */
+    display: flex;
+    gap: 15px;
+}
+
+.social-link { /* This class seems unused in current HTML */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+    transition: var(--transition);
+}
+
+.social-link:hover {
+    background: var(--gradient-primary);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark theme footer adjustments */
+.dark-theme .footer-wave svg path {
+    fill: var(--footer-bg);
+}
+
+.dark-theme .footer-main {
+    background-color: var(--footer-bg);
+}
+
+.dark-theme .footer-bottom {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* ==== Toast Notifications ==== */
+.toast-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* KingsChat Logo Styling */
+.kingschat-logo {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    vertical-align: middle;
+    border-radius: 4px;
+    transition: var(--transition-fast);
+}
+
+.footer-links a:hover .kingschat-logo {
+    transform: scale(1.1);
+}
+
+.footer-links a img, /* Combined for img and i inside footer links */
+.footer-links a i {
+    flex-shrink: 0; /* Prevent icon/image from shrinking if text is long */
+}
+
+
+.toast {
+    background-color: rgba(13, 33, 161, 0.9);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    animation: toastFadeIn 0.3s ease; /* Ensure this animation is defined or use JS for opacity/transform */
+    max-width: 300px;
+    /* For JS controlled fade in/out, ensure initial state is set if animation isn't 'forwards' */
+    opacity: 0; 
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease; /* If JS handles the transition states */
+}
+/* If using JS to add class for fade-in, this is not needed if opacity/transform are directly manipulated */
+/* .toast.show { opacity: 1; transform: translateY(0); } */
+
+
+.dark-theme .toast {
+    background-color: rgba(51, 71, 196, 0.9);
+}
+
+.toast i { /* For icons inside toast */
+    margin-right: 10px;
+}
+
+.toast.fade-out { /* If using JS to add class for fade-out */
+    opacity: 0 !important; /* Ensure it overrides inline style if JS sets opacity=1 initially */
+    transform: translateY(20px) !important;
+}
+
+/* Keyframes for toast if CSS animations are preferred over JS direct manipulation */
+@keyframes toastFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes toastFadeOut {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(20px); }
+}
+
+/* ==== Media Queries ==== */
+@media (max-width: 1200px) {
+    .container {
+        max-width: 95%;
+    }
+    
+    .portal-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 992px) {
+    .portal-item {
+        padding: 0; /* Revisit this - might make content too tight to edges */
+    }
+    
+    .quick-stats {
+        flex-wrap: wrap;
+        /* Removed grid-template-columns for flex-wrap to work effectively */
+    }
+    
+    .stat-item {
+        min-width: 150px;
+        flex-basis: calc(50% - 10px); /* Example for 2 columns on medium screens */
+    }
+    
+    .testimonial-carousel {
+        min-height: 250px; /* Adjusted from height to min-height */
+    }
+    
+    .footer-links-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+    }
+    
+    /* Styles from resource-styles.css integrated for consistency */
+    .resource-user-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .category-filter {
+        width: 100%;
+    }
+    
+    .filter-select {
+        width: 100%;
+    }
+    
+    .resource-preview-footer {
+        flex-wrap: wrap;
+    }
+    
+    .primary-btn, .secondary-btn { /* These classes from resource-styles might need to be defined or used carefully */
+        flex: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 15px;
+    }
+    
+    .site-header {
+        padding: 60px 0 40px;
+    }
+    
+    .animated-logo {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 20px;
+    }
+    
+    .portal-grid {
+        grid-template-columns: 1fr;
+        max-width: 450px;
+        margin: 0 auto;
+    }
+    
+    .stat-item { /* Ensure it takes full width or desired width in single column */
+        flex-basis: 100%;
+    }
+    
+    .testimonial-content p {
+        font-size: 16px;
+    }
+    
+    .testimonial-carousel {
+        min-height: 280px; /* Adjusted from height */
+    }
+    
+    .footer-links-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    
+    .footer-column h4::after {
+        left: 0;
+        transform: none;
+    }
+    
+    .footer-bottom .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .social-links { /* Ensure if this is used, it centers */
+        justify-content: center;
+    }
+        
+    /* Styles from resource-styles.css integrated */
+    .resources-list { /* Assuming .resources-list is a class from resource-styles.css used elsewhere */
+        grid-template-columns: 1fr;
+    }
+    
+    .portal-section-header { /* Assuming .portal-section-header is from resource-styles.css */
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+        
+    .share-options { /* Assuming .share-options is from resource-styles.css */
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* More flexible than fixed 3 columns */
+    }
+}
+
+@media (max-width: 576px) {
+    .site-header h1 {
+        font-size: 28px;
+    }
+    
+    .tagline {
+        font-size: 16px;
+    }
+    
+    .email-collection {
+        padding: 30px 20px;
+    }
+    
+    .testimonial-carousel {
+        min-height: 320px; /* Adjusted from height */
+    }
+    
+    .footer-links-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .footer-column h4::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .footer-links li {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .footer-links a:hover {
+        transform: translateY(-3px); /* Re-add hover effect */
+    }
+    
+    .resource-header { /* Style from resource-styles.css */
+        padding: 40px 0 30px;
+    }
+    
+    .footer-wave {
+        height: 80px;
+    }
+
+    /* Styles from resource-styles.css for small screens */
+     .resource-content { /* This is from resource-styles, ensure it's intended here or specific */
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+    
+    .resource-icon { /* This is from resource-styles */
+        margin-bottom: 5px;
+    }
+
+    .share-options {  /* This is from resource-styles */
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* More flexible */
+    }
+}
+
+/* Mobile-first footer improvements (already present, good) */
+@media (max-width: 480px) {
+    .footer-wave {
+        height: 60px;
+    }
+    
+    .footer-main {
+        padding: 40px 0 30px;
+    }
+    
+    .footer-logo {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .footer-brand h3 {
+        font-size: 18px;
+    }
+    
+    .footer-brand p {
+        font-size: 13px;
+        max-width: 280px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .footer-column h4 {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+    
+    .footer-links a {
+        font-size: 14px;
+    }
+    
+    .social-link {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+    
+    .footer-copyright p {
+        font-size: 12px;
+    }
+}
+
+/* ==== Animation Classes ==== */
+/* Keyframes are already defined above, no need to repeat */
+/* .fade-in, .slide-in-right, .slide-in-left are fine */
+
+/* Staggered animations for resource items, ensure specificity if needed */
+/* The current rule applies to any .resources-list .resource-item */
+/* .resources-list .resource-item { ... } */
+/* .resources-list .resource-item.animated { ... } */
