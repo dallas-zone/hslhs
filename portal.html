@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resource Portal | Healing Streams Dallas Zone</title> <link rel="stylesheet" href="css/styles.css">
+    <title>Resource Portal | Healing Streams Dallas Zone</title>
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/portal-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="images/logo.png">
@@ -24,16 +25,66 @@
         </button>
     </div>
     
-    <div id="portal-container" class="portal-container"> <a href="index.html" class="portal-back-link">
+    <div id="portal-container" class="portal-container">
+        <a href="index.html" class="portal-back-link">
             <i class="fas fa-arrow-left"></i> Back to Home
         </a>
+        
+        <!-- Quick Navigation Menu -->
+        <div class="quick-nav-menu" id="quick-nav-menu">
+            <button class="quick-nav-toggle" id="quick-nav-toggle">
+                <i class="fas fa-list"></i>
+                <span>Quick Menu</span>
+            </button>
+            <div class="quick-nav-dropdown" id="quick-nav-dropdown">
+                <div class="quick-nav-header">
+                    <h4>Jump to Section</h4>
+                    <button class="close-quick-nav" id="close-quick-nav">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="quick-nav-items">
+                    <a href="#pre-hslhs-section" class="quick-nav-item" data-section="pre-hslhs">
+                        <div class="nav-item-icon pre-hslhs">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="nav-item-content">
+                            <h5>Pre-HSLHS Resources</h5>
+                            <p>Preparation materials</p>
+                        </div>
+                        <i class="fas fa-arrow-right nav-item-arrow"></i>
+                    </a>
+                    <a href="#hslhs-program-section" class="quick-nav-item" data-section="hslhs-program">
+                        <div class="nav-item-icon hslhs-program">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <div class="nav-item-content">
+                            <h5>HSLHS Program Resources</h5>
+                            <p>Program materials</p>
+                        </div>
+                        <i class="fas fa-arrow-right nav-item-arrow"></i>
+                    </a>
+                    <a href="#post-hslhs-section" class="quick-nav-item" data-section="post-hslhs">
+                        <div class="nav-item-icon post-hslhs">
+                            <i class="fas fa-flag-checkered"></i>
+                        </div>
+                        <div class="nav-item-content">
+                            <h5>Post-HSLHS Resources</h5>
+                            <p>Follow-up materials</p>
+                        </div>
+                        <i class="fas fa-arrow-right nav-item-arrow"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
         
         <header class="portal-header">
             <div class="animated-logo">
                 <img src="images/logo.png" alt="Healing Streams Logo" class="logo">
                 <div class="logo-aura"></div>
             </div>
-            <h1>Resource Portal</h1> <p>Access pre-program, program, and post-program materials for Healing Streams</p>
+            <h1>Resource Portal</h1>
+            <p>Access pre-program, program, and post-program materials for Healing Streams</p>
         </header>
         
         <div class="portal-card">
@@ -84,19 +135,19 @@
                 <section id="pre-hslhs-section" class="portal-phase-section">
                     <h2 class="section-title">Pre-HSLHS Resources</h2>
                     <div id="pre-hslhs-wrapper" class="resources-wrapper">
-                        </div>
+                    </div>
                 </section>
 
                 <section id="hslhs-program-section" class="portal-phase-section">
                     <h2 class="section-title">HSLHS Program Resources</h2>
                     <div id="hslhs-program-wrapper" class="resources-wrapper">
-                        </div>
+                    </div>
                 </section>
 
                 <section id="post-hslhs-section" class="portal-phase-section">
                     <h2 class="section-title">Post-HSLHS Resources</h2>
                     <div id="post-hslhs-wrapper" class="resources-wrapper">
-                        </div>
+                    </div>
                 </section>
                 
                 <div id="no-results" class="no-results">
@@ -191,20 +242,86 @@
     
     <script>
     document.addEventListener('DOMContentLoaded', function() {
+        // Quick Navigation functionality
+        const quickNavToggle = document.getElementById('quick-nav-toggle');
+        const quickNavDropdown = document.getElementById('quick-nav-dropdown');
+        const closeQuickNav = document.getElementById('close-quick-nav');
+        const quickNavItems = document.querySelectorAll('.quick-nav-item');
+        
+        // Toggle quick nav menu
+        if (quickNavToggle) {
+            quickNavToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                quickNavDropdown.classList.toggle('active');
+                this.classList.toggle('active');
+            });
+        }
+        
+        // Close quick nav menu
+        if (closeQuickNav) {
+            closeQuickNav.addEventListener('click', function() {
+                quickNavDropdown.classList.remove('active');
+                quickNavToggle.classList.remove('active');
+            });
+        }
+        
+        // Close quick nav when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.quick-nav-menu')) {
+                quickNavDropdown.classList.remove('active');
+                quickNavToggle.classList.remove('active');
+            }
+        });
+        
+        // Quick nav item clicks
+        quickNavItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetSection = this.getAttribute('href');
+                const section = document.querySelector(targetSection);
+                
+                if (section) {
+                    // Close quick nav
+                    quickNavDropdown.classList.remove('active');
+                    quickNavToggle.classList.remove('active');
+                    
+                    // Smooth scroll to section
+                    section.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Add highlight animation
+                    section.classList.add('section-highlight');
+                    setTimeout(() => {
+                        section.classList.remove('section-highlight');
+                    }, 2000);
+                    
+                    // Track navigation
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'quick_nav_click', {
+                            'event_category': 'navigation',
+                            'event_label': this.dataset.section
+                        });
+                    }
+                }
+            });
+        });
+        
+        // Existing search functionality from your original file
         const searchInput = document.getElementById('resource-search');
         const clearSearchBtn = document.getElementById('clear-search');
         const resetSearchBtn = document.getElementById('reset-search');
         const noResultsDiv = document.getElementById('no-results');
         
-        // Wrappers for each section
         const sectionWrappers = ['pre-hslhs-wrapper', 'hslhs-program-wrapper', 'post-hslhs-wrapper'];
         const sectionContainers = ['pre-hslhs-section', 'hslhs-program-section', 'post-hslhs-section'];
 
-        let resourceData = []; // This will store all resource items' data
+        let resourceData = [];
         let debounceTimer;
 
         function initializeResourcesData() {
-            resourceData = []; // Clear previous data
+            resourceData = [];
             sectionWrappers.forEach(wrapperId => {
                 const wrapperElement = document.getElementById(wrapperId);
                 if (wrapperElement) {
@@ -225,7 +342,7 @@
                             type: type,
                             category: item.closest('.resource-category'),
                             section: item.closest('.portal-phase-section'),
-                            searchableText: `${title} ${description} ${type}`.toLowerCase(),
+                            searchableText: (title + ' ' + description + ' ' + type).toLowerCase(),
                             originalContent: {
                                 title: title,
                                 description: description
@@ -236,20 +353,13 @@
             });
         }
 
-        // Call this after portal.js has rendered all resources
-        // We'll use a MutationObserver on the main #resources-container or a specific wrapper
-        // For simplicity, assuming portal.js rendering completes, then this can be more robustly triggered.
-        // A more robust way is for portal.js to dispatch an event after rendering.
-        // For now, a small timeout or an observer is good.
-
         const resourcesContainerObserver = new MutationObserver((mutationsList, observer) => {
-            // Check if resource items are now present in all expected wrappers
             let allWrappersPopulated = sectionWrappers.every(id => document.getElementById(id) && document.getElementById(id).querySelector('.resource-item'));
             
-            if (allWrappersPopulated || document.querySelector('.resource-item')) { // Fallback if only some populate
+            if (allWrappersPopulated || document.querySelector('.resource-item')) {
                 initializeResourcesData();
                 console.log("Resources initialized for search:", resourceData.length);
-                observer.disconnect(); // Stop observing once initialized
+                observer.disconnect();
             }
         });
         
@@ -257,7 +367,6 @@
         if (mainResourcesContainer) {
              resourcesContainerObserver.observe(mainResourcesContainer, { childList: true, subtree: true });
         }
-
 
         function levenshteinDistance(a, b) {
             const matrix = [];
@@ -309,7 +418,7 @@
             const searchWords = searchTerms.split(/\s+/).filter(word => word.length >= 2);
             if (searchWords.length === 0) return text;
             const regexPattern = searchWords.map(word => word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
-            const regex = new RegExp(`(${regexPattern})`, 'gi');
+            const regex = new RegExp('(' + regexPattern + ')', 'gi');
             return text.replace(regex, '<span class="highlighted">$1</span>');
         }
 
@@ -356,7 +465,6 @@
             
             noResultsDiv.style.display = anyMatchFound ? 'none' : 'flex';
 
-            // Show/hide categories and sections
             sectionContainers.forEach(sectionId => {
                 const sectionElement = document.getElementById(sectionId);
                 if (!sectionElement) return;
@@ -380,14 +488,10 @@
                 sectionElement.style.display = sectionHasVisibleItems ? 'block' : 'none';
             });
 
-
             if (!document.getElementById('highlight-styles')) {
                 const style = document.createElement('style');
                 style.id = 'highlight-styles';
-                style.textContent = `
-                    .highlighted { background-color: rgba(4, 71, 171, 0.15); color: var(--primary-color); font-weight: bold; padding: 0 2px; border-radius: 3px; }
-                    .dark-theme .highlighted { background-color: rgba(30, 144, 255, 0.25); }
-                `;
+                style.textContent = '.highlighted { background-color: rgba(4, 71, 171, 0.15); color: var(--primary-color); font-weight: bold; padding: 0 2px; border-radius: 3px; } .dark-theme .highlighted { background-color: rgba(30, 144, 255, 0.25); }';
                 document.head.appendChild(style);
             }
         }
@@ -398,7 +502,7 @@
                 const searchTerm = searchInput.value.trim();
                 filterResources(searchTerm);
                 clearSearchBtn.style.display = searchTerm.length > 0 ? 'block' : 'none';
-            }, 250); // Slightly increased debounce time
+            }, 250);
         }
 
         function resetSearch() {
@@ -440,30 +544,256 @@
         }
     });
     </script>
+    
     <style>
-        /* Styles for the new portal phase sections */
+        /* Quick Navigation Menu Styles */
+        .quick-nav-menu {
+            position: fixed;
+            top: 80px;
+            left: 20px;
+            z-index: 1000;
+        }
+        
+        .quick-nav-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 12px 18px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(13, 33, 161, 0.3);
+            transition: var(--transition);
+        }
+        
+        .quick-nav-toggle:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(13, 33, 161, 0.4);
+        }
+        
+        .quick-nav-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            margin-top: 10px;
+            background: var(--card-background);
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            min-width: 300px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .quick-nav-dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .quick-nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+        }
+        
+        .quick-nav-header h4 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 600;
+            color: white;
+        }
+        
+        .close-quick-nav {
+            background: transparent;
+            color: rgba(255, 255, 255, 0.8);
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-fast);
+            box-shadow: none;
+        }
+        
+        .close-quick-nav:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transform: rotate(90deg);
+        }
+        
+        .quick-nav-items {
+            padding: 10px;
+        }
+        
+        .quick-nav-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            text-decoration: none;
+            color: var(--text-color);
+            border-radius: 8px;
+            transition: var(--transition-fast);
+            margin-bottom: 5px;
+        }
+        
+        .quick-nav-item:hover {
+            background: rgba(13, 33, 161, 0.05);
+            transform: translateX(5px);
+            color: var(--text-color);
+        }
+        
+        .nav-item-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: white;
+            flex-shrink: 0;
+        }
+        
+        .nav-item-icon.pre-hslhs {
+            background: var(--gradient-primary);
+        }
+        
+        .nav-item-icon.hslhs-program {
+            background: var(--gradient-secondary);
+        }
+        
+        .nav-item-icon.post-hslhs {
+            background: var(--gradient-accent);
+        }
+        
+        .nav-item-content {
+            flex: 1;
+        }
+        
+        .nav-item-content h5 {
+            margin: 0 0 5px 0;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+        
+        .nav-item-content p {
+            margin: 0;
+            font-size: 13px;
+            color: var(--muted-text);
+        }
+        
+        .nav-item-arrow {
+            font-size: 14px;
+            color: var(--muted-text);
+            transition: var(--transition-fast);
+        }
+        
+        .quick-nav-item:hover .nav-item-arrow {
+            color: var(--primary-color);
+            transform: translateX(3px);
+        }
+        
+        /* Section highlight animation */
+        .section-highlight {
+            animation: sectionHighlight 2s ease-in-out;
+        }
+        
+        @keyframes sectionHighlight {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(10px); background-color: rgba(13, 33, 161, 0.05); }
+            75% { transform: translateX(10px); background-color: rgba(13, 33, 161, 0.05); }
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .quick-nav-menu {
+                top: 60px;
+                left: 15px;
+                right: 15px;
+            }
+            
+            .quick-nav-toggle {
+                width: 100%;
+                justify-content: center;
+                padding: 15px;
+                border-radius: 12px;
+            }
+            
+            .quick-nav-dropdown {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                max-width: none;
+                border-radius: 0;
+                margin-top: 0;
+                z-index: 10000;
+            }
+            
+            .quick-nav-dropdown.active {
+                transform: none;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .quick-nav-toggle span {
+                display: none;
+            }
+        }
+        
+        /* Portal phase section styles */
         .portal-phase-section {
-            margin-bottom: 50px; /* Space between Pre, Program, and Post sections */
-            padding: 20px;
-            background-color: rgba(var(--card-background-rgb, 255, 255, 255), 0.5); /* Slightly transparent card background */
+            margin-bottom: 50px;
+            padding: 25px;
+            background-color: rgba(255, 255, 255, 0.9);
             border-radius: var(--border-radius-lg);
             box-shadow: var(--card-shadow);
+            border-top: 4px solid var(--primary-color);
+            transition: var(--transition);
         }
+        
+        .portal-phase-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(13, 33, 161, 0.15);
+        }
+        
         .dark-theme .portal-phase-section {
-             background-color: rgba(var(--dark-card-background-rgb, 30, 30, 30), 0.7);
+            background-color: rgba(30, 30, 30, 0.9);
+            border-top-color: var(--secondary-color);
         }
+        
         .portal-phase-section .section-title {
-            text-align: left; /* Align section titles to the left */
+            text-align: left;
             margin-bottom: 25px;
             padding-bottom: 10px;
             border-bottom: 3px solid var(--primary-color);
-            font-size: 2rem; /* Larger section titles */
+            font-size: 2rem;
         }
-         .dark-theme .portal-phase-section .section-title {
-             border-bottom-color: var(--secondary-color);
-         }
-
-        /* Ensure .resources-wrapper has some padding if categories are directly inside */
+        
+        .dark-theme .portal-phase-section .section-title {
+            border-bottom-color: var(--secondary-color);
+        }
+        
         .resources-wrapper {
             padding-top: 10px;
         }

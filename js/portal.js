@@ -1,10 +1,12 @@
 /**
  * Healing Streams Dallas Zone - Portal Page Script
- * * This script handles all portal page functionality:
+ * 
+ * This script handles all portal page functionality:
  * - Form submission and data collection
  * - Resource rendering and display for Pre-HSLHS, HSLHS Program, and Post-HSLHS sections
  * - Download and view actions for resources
  * - Animation and interaction for resource categories
+ * - Resource preview functionality
  */
 
 // Configuration for resources
@@ -261,7 +263,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const submitBtn = this.querySelector('.submit-btn');
             const originalBtnHTML = submitBtn.innerHTML; // Save full HTML for spinner
             
-            submitBtn.innerHTML = `<div class="loading-dots"><span></span><span></span><span></span></div>`;
+            submitBtn.innerHTML = '<div class="loading-dots"><span></span><span></span><span></span></div>';
             submitBtn.disabled = true;
             
             const formData = new FormData(resourceForm);
@@ -370,20 +372,20 @@ function toggleTheme() {
 function renderResources(sectionId) {
     console.log('Rendering resources for section:', sectionId);
     
-    const resourcesWrapper = document.getElementById(`${sectionId}-wrapper`);
+    const resourcesWrapper = document.getElementById(sectionId + '-wrapper');
     if (!resourcesWrapper) {
-        console.error(`Resources wrapper element #${sectionId}-wrapper not found.`);
+        console.error('Resources wrapper element #' + sectionId + '-wrapper not found.');
         return;
     }
     resourcesWrapper.innerHTML = ''; // Clear previous content
     
     const sectionData = resources[sectionId];
     if (!sectionData || !sectionData.categories) {
-        console.error(`Resource data or categories not found for section: ${sectionId}`);
+        console.error('Resource data or categories not found for section: ' + sectionId);
         return;
     }
     
-    console.log(`Found ${sectionData.categories.length} categories for ${sectionId}`);
+    console.log('Found ' + sectionData.categories.length + ' categories for ' + sectionId);
     
     sectionData.categories.forEach((category, categoryIndex) => {
         const categorySection = document.createElement('div');
@@ -392,15 +394,13 @@ function renderResources(sectionId) {
         
         const categoryHeader = document.createElement('div');
         categoryHeader.className = 'category-header'; // From portal-styles.css
-        categoryHeader.innerHTML = `
-            <h3 class="category-title">
-                <i class="${category.icon || 'fas fa-folder'}"></i>
-                <span>${category.title}</span>
-            </h3>
-            <button class="category-toggle">
-                <i class="fas fa-chevron-up"></i>
-            </button>
-        `;
+        categoryHeader.innerHTML = '<h3 class="category-title">' +
+            '<i class="' + (category.icon || 'fas fa-folder') + '"></i>' +
+            '<span>' + category.title + '</span>' +
+            '</h3>' +
+            '<button class="category-toggle">' +
+            '<i class="fas fa-chevron-up"></i>' +
+            '</button>';
         
         categoryHeader.querySelector('.category-toggle').addEventListener('click', function() {
             const resList = categorySection.querySelector('.resources-list');
@@ -442,8 +442,8 @@ function renderResources(sectionId) {
  */
 function createResourceItem(resource, index) {
     const resourceItem = document.createElement('div');
-    resourceItem.className = `resource-item ${resource.type}`; // From portal-styles.css
-    resourceItem.style.transitionDelay = `${index * 0.05}s`;
+    resourceItem.className = 'resource-item ' + resource.type; // From portal-styles.css
+    resourceItem.style.transitionDelay = (index * 0.05) + 's';
     
     let iconHTML = '';
     switch(resource.type) {
@@ -457,29 +457,31 @@ function createResourceItem(resource, index) {
         default: iconHTML = '<i class="fas fa-file"></i>';
     }
     
-    resourceItem.innerHTML = `
-        <div class="resource-content" ${!resource.informational ? 'data-preview-trigger' : ''}>
-            <div class="resource-icon">${iconHTML}</div>
-            <div class="resource-details">
-                <h4 class="resource-title">${resource.title}</h4>
-                <p class="resource-description">${resource.description}</p>
-                <div class="resource-meta">
-                    <span class="resource-type">${resource.type.toUpperCase()}</span>
-                </div>
-            </div>
-        </div>
-        <div class="resource-actions">
-            ${resource.informational ? 
-                `<button class="info-btn" title="View Information"><i class="fas fa-info-circle"></i></button>` :
-            resource.type === 'info' ? // This case is a bit redundant if informational flag is used
-                `<button class="view-btn" title="View Details"><i class="fas fa-eye"></i></button>` :
-            (resource.type === 'pdf' || resource.type === 'doc' || resource.type === 'spreadsheet') ?
-                `<button class="download-btn" title="Download"><i class="fas fa-download"></i></button>` :
-                `<button class="view-btn" title="Open Link"><i class="fas fa-external-link-alt"></i></button>`
-            }
-            ${!resource.informational ? `<button class="share-btn" title="Share"><i class="fas fa-share-alt"></i></button>` : ''}
-        </div>
-    `;
+    const previewAttribute = !resource.informational ? 'data-preview-trigger' : '';
+    
+    resourceItem.innerHTML = '<div class="resource-content" ' + previewAttribute + '>' +
+        '<div class="resource-icon">' + iconHTML + '</div>' +
+        '<div class="resource-details">' +
+        '<h4 class="resource-title">' + resource.title + '</h4>' +
+        '<p class="resource-description">' + resource.description + '</p>' +
+        '<div class="resource-meta">' +
+        '<span class="resource-type">' + resource.type.toUpperCase() + '</span>' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
+        '<div class="resource-actions">' +
+        (resource.informational ? 
+            '<button class="info-btn" title="View Information"><i class="fas fa-info-circle"></i></button>' :
+        resource.type === 'info' ? 
+            '<button class="view-btn" title="View Details"><i class="fas fa-eye"></i></button>' :
+        (resource.type === 'pdf' || resource.type === 'doc' || resource.type === 'spreadsheet') ?
+            '<button class="download-btn" title="Download"><i class="fas fa-download"></i></button>' +
+            '<button class="preview-btn" title="Preview"><i class="fas fa-eye"></i></button>' :
+            '<button class="view-btn" title="Open Link"><i class="fas fa-external-link-alt"></i></button>' +
+            '<button class="preview-btn" title="Preview"><i class="fas fa-eye"></i></button>'
+        ) +
+        (!resource.informational ? '<button class="share-btn" title="Share"><i class="fas fa-share-alt"></i></button>' : '') +
+        '</div>';
     
     setupResourceActions(resourceItem, resource);
     return resourceItem;
@@ -496,7 +498,7 @@ function setupResourceActions(resourceItemEl, resource) {
     if (resource.informational) {
         const infoBtn = resourceItemEl.querySelector('.info-btn');
         const action = () => {
-            showToast(`${resource.title}: ${resource.description}`, '<i class="fas fa-info-circle"></i>', 5000);
+            showToast(resource.title + ': ' + resource.description, '<i class="fas fa-info-circle"></i>', 5000);
             if (typeof gtag === 'function') gtag('event', 'info_view', {'event_category': 'information', 'event_label': resource.title});
         };
         if (infoBtn) infoBtn.addEventListener('click', action);
@@ -504,24 +506,45 @@ function setupResourceActions(resourceItemEl, resource) {
         return;
     }
 
-    const actionBtn = resourceItemEl.querySelector('.download-btn, .view-btn');
-    if (actionBtn) {
-        actionBtn.addEventListener('click', function() {
-            const actionType = this.classList.contains('download-btn') ? 'download' : 'view';
-            if (actionType === 'download') {
-                if (window.hsDallasZone && window.hsDallasZone.downloadHandler) {
-                    window.hsDallasZone.downloadHandler.downloadResource(resource.url, resource.title, resource.type);
-                } else {
-                    handleResourceDownload(resource); // Fallback
-                }
+    // Download button
+    const downloadBtn = resourceItemEl.querySelector('.download-btn');
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', function() {
+            if (window.hsDallasZone && window.hsDallasZone.downloadHandler) {
+                window.hsDallasZone.downloadHandler.downloadResource(resource.url, resource.title, resource.type);
             } else {
-                window.open(resource.url, '_blank');
-                showToast(`Opening: ${resource.title}`, '<i class="fas fa-external-link-alt"></i>');
+                handleResourceDownload(resource); // Fallback
             }
-            if (typeof gtag === 'function') gtag('event', `resource_${actionType}`, {'event_category': resource.type, 'event_label': resource.title});
+            if (typeof gtag === 'function') gtag('event', 'resource_download', {'event_category': resource.type, 'event_label': resource.title});
         });
     }
 
+    // View button
+    const viewBtn = resourceItemEl.querySelector('.view-btn');
+    if (viewBtn) {
+        viewBtn.addEventListener('click', function() {
+            window.open(resource.url, '_blank');
+            showToast('Opening: ' + resource.title, '<i class="fas fa-external-link-alt"></i>');
+            if (typeof gtag === 'function') gtag('event', 'resource_view', {'event_category': resource.type, 'event_label': resource.title});
+        });
+    }
+
+    // Preview button
+    const previewBtn = resourceItemEl.querySelector('.preview-btn');
+    if (previewBtn) {
+        previewBtn.addEventListener('click', function() {
+            if (typeof window.openPreviewModal === 'function') {
+                window.openPreviewModal(resource);
+            } else {
+                // Fallback to opening the resource
+                window.open(resource.url, '_blank');
+                showToast('Opening: ' + resource.title, '<i class="fas fa-external-link-alt"></i>');
+            }
+            if (typeof gtag === 'function') gtag('event', 'resource_preview', {'event_category': resource.type, 'event_label': resource.title});
+        });
+    }
+
+    // Share button
     const shareBtn = resourceItemEl.querySelector('.share-btn');
     if (shareBtn) {
         shareBtn.addEventListener('click', function() {
@@ -540,7 +563,7 @@ function setupResourceActions(resourceItemEl, resource) {
                 tempInput.select();
                 document.execCommand('copy');
                 document.body.removeChild(tempInput);
-                showToast(`Link copied: ${resource.title}`, '<i class="fas fa-copy"></i>');
+                showToast('Link copied: ' + resource.title, '<i class="fas fa-copy"></i>');
             }
             if (typeof gtag === 'function') gtag('event', 'resource_share', {'event_category': resource.type, 'event_label': resource.title});
         });
@@ -552,17 +575,20 @@ function setupResourceActions(resourceItemEl, resource) {
             // Prevent opening if a button inside resource-actions was clicked
             if (e.target.closest('.resource-actions')) return;
 
-            // For non-downloadable types or if a specific preview modal is not implemented, open directly
-            if (resource.type === 'video' || resource.type === 'link' || resource.type === 'audio') {
-                 window.open(resource.url, '_blank');
-                 showToast(`Opening: ${resource.title}`, `<i class="fas fa-${resource.type === 'video' ? 'video' : 'external-link-alt'}"></i>`);
-            } else if (resource.type === 'pdf' || resource.type === 'doc' || resource.type === 'spreadsheet') {
-                // Could implement a modal preview here, or just open/download
-                // For now, consistent with actionBtn:
-                 if (window.hsDallasZone && window.hsDallasZone.downloadHandler) {
-                    window.hsDallasZone.downloadHandler.downloadResource(resource.url, resource.title, resource.type);
-                } else {
-                    handleResourceDownload(resource); // Fallback
+            // Check if preview modal function is available
+            if (typeof window.openPreviewModal === 'function') {
+                window.openPreviewModal(resource);
+            } else {
+                // Fallback behavior
+                if (resource.type === 'video' || resource.type === 'link' || resource.type === 'audio') {
+                    window.open(resource.url, '_blank');
+                    showToast('Opening: ' + resource.title, '<i class="fas fa-' + (resource.type === 'video' ? 'video' : 'external-link-alt') + '"></i>');
+                } else if (resource.type === 'pdf' || resource.type === 'doc' || resource.type === 'spreadsheet') {
+                    if (window.hsDallasZone && window.hsDallasZone.downloadHandler) {
+                        window.hsDallasZone.downloadHandler.downloadResource(resource.url, resource.title, resource.type);
+                    } else {
+                        handleResourceDownload(resource); // Fallback
+                    }
                 }
             }
             if (typeof gtag === 'function') gtag('event', 'resource_preview', {'event_category': resource.type, 'event_label': resource.title});
@@ -579,7 +605,7 @@ function handleResourceDownload(resource) {
     let fileName = resource.title.replace(/[^a-z0-9]/gi, '_').toLowerCase();
     let fileExtension = resource.type === 'pdf' ? '.pdf' : (resource.type === 'doc' ? '.docx' : (resource.type === 'spreadsheet' ? '.xlsx' : ''));
     
-    showToast(`Preparing download: ${resource.title}`, '<i class="fas fa-spinner fa-spin"></i>', 1500);
+    showToast('Preparing download: ' + resource.title, '<i class="fas fa-spinner fa-spin"></i>', 1500);
 
     // Create a temporary link and trigger download
     const downloadLink = document.createElement('a');
@@ -603,7 +629,10 @@ function handleResourceDownload(resource) {
  * @param {string} iconHTML - Icon HTML string
  * @param {number} duration - Duration in milliseconds
  */
-function showToast(message, iconHTML = '', duration = 3000) {
+function showToast(message, iconHTML, duration) {
+    iconHTML = iconHTML || '';
+    duration = duration || 3000;
+    
     const toastContainer = document.getElementById('toast-container');
     if (!toastContainer) {
         console.warn('Toast container (#toast-container) not found. Cannot show toast.');
@@ -612,7 +641,7 @@ function showToast(message, iconHTML = '', duration = 3000) {
     
     const toast = document.createElement('div');
     toast.className = 'toast'; // From styles.css or portal-styles.css
-    toast.innerHTML = `${iconHTML} <span>${message}</span>`; // Wrap message in span for potential styling
+    toast.innerHTML = iconHTML + ' <span>' + message + '</span>'; // Wrap message in span for potential styling
     
     toastContainer.appendChild(toast);
     

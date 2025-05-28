@@ -67,6 +67,187 @@
     font-size: 12px;
 }
 
+/* Quick Navigation Menu Styles */
+.quick-nav-menu {
+    position: fixed;
+    top: 80px;
+    left: 20px;
+    z-index: 1000;
+}
+
+.quick-nav-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(13, 33, 161, 0.3);
+    transition: var(--transition);
+}
+
+.quick-nav-toggle:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(13, 33, 161, 0.4);
+}
+
+.quick-nav-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 10px;
+    background: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    min-width: 300px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: var(--transition);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.quick-nav-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.quick-nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background: var(--gradient-primary);
+    color: white;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.quick-nav-header h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+}
+
+.close-quick-nav {
+    background: transparent;
+    color: rgba(255, 255, 255, 0.8);
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-fast);
+    box-shadow: none;
+}
+
+.close-quick-nav:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    transform: rotate(90deg);
+}
+
+.quick-nav-items {
+    padding: 10px;
+}
+
+.quick-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    text-decoration: none;
+    color: var(--text-color);
+    border-radius: 8px;
+    transition: var(--transition-fast);
+    margin-bottom: 5px;
+}
+
+.quick-nav-item:hover {
+    background: rgba(13, 33, 161, 0.05);
+    transform: translateX(5px);
+    color: var(--text-color);
+}
+
+.dark-theme .quick-nav-item:hover {
+    background: rgba(51, 71, 196, 0.1);
+}
+
+.nav-item-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: white;
+    flex-shrink: 0;
+}
+
+.nav-item-icon.pre-hslhs {
+    background: var(--gradient-primary);
+}
+
+.nav-item-icon.hslhs-program {
+    background: var(--gradient-secondary);
+}
+
+.nav-item-icon.post-hslhs {
+    background: var(--gradient-accent);
+}
+
+.nav-item-content {
+    flex: 1;
+}
+
+.nav-item-content h5 {
+    margin: 0 0 5px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.nav-item-content p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--muted-text);
+}
+
+.nav-item-arrow {
+    font-size: 14px;
+    color: var(--muted-text);
+    transition: var(--transition-fast);
+}
+
+.quick-nav-item:hover .nav-item-arrow {
+    color: var(--primary-color);
+    transform: translateX(3px);
+}
+
+/* Section highlight animation */
+.section-highlight {
+    animation: sectionHighlight 2s ease-in-out;
+}
+
+@keyframes sectionHighlight {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(10px); background-color: rgba(13, 33, 161, 0.05); }
+    75% { transform: translateX(10px); background-color: rgba(13, 33, 161, 0.05); }
+}
+
 /* Portal header */
 .portal-header {
     text-align: center;
@@ -643,54 +824,6 @@
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Media queries for responsive design */
-@media (max-width: 768px) {
-    .form-row {
-        flex-direction: column;
-        gap: 0; /* Remove gap if they stack, or adjust margin on form-group */
-        margin-bottom: 0; /* Adjust if form-group handles spacing */
-    }
-    .form-row .form-group {
-        margin-bottom: 20px; /* Add margin back to individual groups when stacked */
-    }
-    .form-row .form-group:last-child {
-        margin-bottom: 0; 
-    }
-    
-    .resources-list {
-        grid-template-columns: 1fr;
-    }
-    
-    .portal-card {
-        padding: 30px 20px;
-    }
-    
-    .portal-header h1 {
-        font-size: 28px;
-    }
-}
-
-@media (max-width: 576px) {
-    .portal-container {
-        padding: 40px 15px;
-    }
-    
-    .portal-back-link {
-        top: 15px;
-        left: 15px;
-    }
-    
-    .resource-content {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .resource-icon {
-        margin-bottom: 10px;
-    }
-}
-
-
 /* ==== Portal Phase Section Styles (for stacked layout in portal.html) ==== */
 .portal-phase-section {
     margin-bottom: 50px; 
@@ -700,6 +833,12 @@
     border-radius: var(--border-radius-lg);
     box-shadow: var(--card-shadow);
     border-top: 4px solid var(--primary-color); /* Add a top border accent */
+    transition: var(--transition);
+}
+
+.portal-phase-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(13, 33, 161, 0.15);
 }
 
 .dark-theme .portal-phase-section {
@@ -753,88 +892,120 @@
     display: none;
 }
 
-/* ==== Admin Dashboard Styles (Copied from admin.html inline style for consistency if needed elsewhere) ==== */
-/* This section is for styles that might be specific to elements appearing on admin.html but could be reused or are better placed here */
-
-/* Example: If .admin-panel-card, .workbook-container etc. are used on other portal pages, style them here. */
-/* For now, assuming most admin styles are self-contained or in styles.css if global */
-
-.admin-panel-card { /* General card style for admin panels */
-    background: var(--card-background);
-    border-radius: var(--border-radius);
-    padding: 25px 30px; 
-    box-shadow: var(--card-shadow); 
-    margin-bottom: 30px;
-    transition: var(--transition);
+/* Dark Theme Adjustments */
+.dark-theme .quick-nav-dropdown {
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
-.admin-panel-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 18px 35px rgba(13, 33, 161, 0.15); 
+.dark-theme .quick-nav-header {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
 }
 
-.admin-panel-card h3 {
-    color: var(--primary-color);
-    margin-top: 0; 
-    margin-bottom: 20px;
-    font-size: 20px; 
-    border-bottom: 2px solid var(--secondary-color); 
-    padding-bottom: 10px;
-    display: inline-block; 
-}
-.dark-theme .admin-panel-card h3 {
-     border-bottom-color: var(--accent-color);
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+        gap: 0; /* Remove gap if they stack, or adjust margin on form-group */
+        margin-bottom: 0; /* Adjust if form-group handles spacing */
+    }
+    .form-row .form-group {
+        margin-bottom: 20px; /* Add margin back to individual groups when stacked */
+    }
+    .form-row .form-group:last-child {
+        margin-bottom: 0; 
+    }
+    
+    .resources-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .portal-card {
+        padding: 30px 20px;
+    }
+    
+    .portal-header h1 {
+        font-size: 28px;
+    }
+    
+    /* Quick Navigation Mobile Styles */
+    .quick-nav-menu {
+        top: 60px;
+        left: 15px;
+        right: 15px;
+    }
+    
+    .quick-nav-toggle {
+        width: 100%;
+        justify-content: center;
+        padding: 15px;
+        border-radius: 12px;
+    }
+    
+    .quick-nav-dropdown {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        max-width: none;
+        border-radius: 0;
+        margin-top: 0;
+        z-index: 10000;
+    }
+    
+    .quick-nav-dropdown.active {
+        transform: none;
+    }
 }
 
-/* Workbook placeholder and container specific styles (if reused outside admin.html) */
-.workbook-container {
-    background-color: var(--background-color); 
-    padding: 20px;
-    border-radius: var(--border-radius-sm);
-    box-shadow: inset 0 2px 8px rgba(0,0,0,0.05); 
-    margin-top: 10px; 
-}
-.dark-theme .workbook-container {
-    background-color: rgba(0,0,0,0.1); 
-    box-shadow: inset 0 2px 8px rgba(0,0,0,0.2);
+@media (max-width: 576px) {
+    .portal-container {
+        padding: 40px 15px;
+    }
+    
+    .portal-back-link {
+        top: 15px;
+        left: 15px;
+    }
+    
+    .resource-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .resource-icon {
+        margin-bottom: 10px;
+    }
+    
+    /* Quick Navigation Mobile Styles */
+    .quick-nav-toggle span {
+        display: none;
+    }
 }
 
-.workbook-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding-bottom: 15px;
-    margin-bottom: 15px;
-    border-bottom: 1px solid rgba(0,0,0,0.08);
+@media (max-width: 480px) {
+    .quick-nav-toggle {
+        padding: 12px;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        justify-content: center;
+    }
+    
+    .quick-nav-toggle span {
+        display: none;
+    }
+    
+    .nav-item-content h5 {
+        font-size: 15px;
+    }
+    
+    .nav-item-content p {
+        font-size: 12px;
+    }
 }
-.dark-theme .workbook-header {
-    border-bottom-color: rgba(255,255,255,0.08);
-}
-.workbook-header img { width: 32px; height: 32px; border-radius: 4px; }
-.workbook-header h4 { margin: 0; font-size: 18px; font-weight: 600; color: var(--text-color); }
-.dark-theme .workbook-header h4 { color: var(--light-text); }
 
-.workbook-placeholder {
-    text-align: center;
-    padding: 60px 30px; 
-    background-color: rgba(0,0,0,0.02); 
-    border: 2px dashed rgba(13, 33, 161, 0.2); 
-    border-radius: var(--border-radius-sm); 
-    color: var(--muted-text);
-    transition: var(--transition);
-}
-.dark-theme .workbook-placeholder {
-    background-color: rgba(255,255,255,0.03);
-    border-color: rgba(51, 71, 196, 0.3); 
-}
-.workbook-placeholder:hover { border-color: var(--primary-color); background-color: rgba(13, 33, 161, 0.03); }
-.dark-theme .workbook-placeholder:hover { border-color: var(--accent-color); background-color: rgba(51, 71, 196, 0.05); }
-.workbook-placeholder p { margin-bottom: 10px; font-size: 16px; }
-.workbook-placeholder p:last-child { margin-bottom: 0; font-size: 14px; opacity: 0.8; }
-
-.workbook-iframe { width: 100%; height: 600px; border: none; border-radius: var(--border-radius-sm); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-
-/* Styles for highlighted search text (if not in styles.css) */
+/* Highlighted search text styles */
 .highlighted { 
     background-color: rgba(var(--primary-color-rgb, 4, 71, 171), 0.15);
     color: var(--primary-color); 
@@ -842,6 +1013,7 @@
     padding: 0 2px; 
     border-radius: 3px; 
 }
+
 .dark-theme .highlighted { 
     background-color: rgba(var(--dark-primary-color-rgb, 30, 144, 255), 0.25);
 }
