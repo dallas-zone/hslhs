@@ -537,13 +537,20 @@ section {
 
 .card-image {
     width: 100%;
-    height: 180px;
-    object-fit: cover;
+    height: 220px; /* Increased from 180px to show more of the image */
+    object-fit: contain; /* Changed from 'cover' to 'contain' to prevent cropping */
+    object-position: center; /* Center the image */
     transition: var(--transition);
+    background-color: #f8f9fa; /* Light background in case image doesn't fill entire space */
+    padding: 10px; /* Add some padding around the image */
+}
+
+.dark-theme .card-image {
+    background-color: #2a2a2a; /* Dark background for dark theme */
 }
 
 .portal-item:hover .card-image {
-    transform: scale(1.05);
+    transform: scale(1.02); /* Reduced scale to prevent overflow */
 }
 
 .content-wrapper {
@@ -913,22 +920,10 @@ section {
     position: relative;
     margin-top: auto;
     color: var(--light-text);
+    background-color: var(--footer-bg); /* Direct background color instead of wave transition */
 }
 
-.footer-wave {
-    display: block;
-    position: relative;
-    width: 100%;
-    height: 120px;
-    overflow: hidden;
-    transform: translateY(1px);
-}
-
-.footer-wave svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-}
+/* Removed footer-wave section entirely */
 
 .footer-main {
     background-color: var(--footer-bg);
@@ -1100,10 +1095,6 @@ section {
 }
 
 /* Dark theme footer adjustments */
-.dark-theme .footer-wave svg path {
-    fill: var(--footer-bg);
-}
-
 .dark-theme .footer-main {
     background-color: var(--footer-bg);
 }
@@ -1352,10 +1343,6 @@ section {
     .resource-header { /* Style from resource-styles.css */
         padding: 40px 0 30px;
     }
-    
-    .footer-wave {
-        height: 80px;
-    }
 
     /* Styles from resource-styles.css for small screens */
      .resource-content { /* This is from resource-styles, ensure it's intended here or specific */
@@ -1375,10 +1362,6 @@ section {
 
 /* Mobile-first footer improvements (already present, good) */
 @media (max-width: 480px) {
-    .footer-wave {
-        height: 60px;
-    }
-    
     .footer-main {
         padding: 40px 0 30px;
     }
