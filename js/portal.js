@@ -106,6 +106,216 @@ const resources = {
                         external: true
                     }
                 ]
+            },
+            {
+                id: "publicity-logistics",
+                title: "Publicity Logistics and Resources",
+                icon: "fas fa-bullhorn",
+                resources: [
+                    {
+                        title: "Branding and Publicity Materials",
+                        description: "Access publicity and branding materials for HSLHS promotion.",
+                        type: "link",
+                        url: "https://ethsch.org/2CD",
+                        external: true
+                    },
+                    {
+                        title: "Publicity and Branding Expectations",
+                        description: "Guidelines and expectations for publicity and branding activities.",
+                        type: "doc",
+                        url: "https://docs.google.com/document/d/1Y4RhQVu3iLBi9f7RegTwvXXhTpcQnxUPayoTbQZhdg0/edit?usp=drive_link",
+                        external: true
+                    },
+                    {
+                        title: "Be a Herald Flier",
+                        description: "Downloadable flier for promoting the Herald program.",
+                        type: "pdf",
+                        url: "https://drive.google.com/file/d/14XEoWFHCvocOVb-nHC8qvn0UNjRKxpYD/view?usp=drive_link",
+                        external: true
+                    }
+                ]
+            },
+            {
+                id: "inspiration-videos",
+                title: "Videos / Programs to Inspire Faith",
+                icon: "fas fa-video",
+                resources: [
+                    {
+                        title: "Raised from Dead Series (ROR, Pastor Bear Testimony)",
+                        description: "Powerful testimonies of resurrection from the dead.",
+                        type: "video",
+                        url: "https://www.youtube.com/watch?v=u33yMb3_DMF&ab_channel=CHRISTEMBASSYTURKEY",
+                        external: true
+                    },
+                    {
+                        title: "HSLHS Testimonies",
+                        description: "Collection of testimonies from previous Healing Streams programs.",
+                        type: "video",
+                        url: "https://www.youtube.com/watch?v=_-zzHtrLobk&ab_channel=HealingStreamsDigital",
+                        external: true
+                    },
+                    {
+                        title: "HSLHS Prophecies",
+                        description: "Prophetic words and declarations for Healing Streams.",
+                        type: "video",
+                        url: "#", // Placeholder - no link provided
+                        external: true
+                    },
+                    {
+                        title: "Now is the Time",
+                        description: "Inspirational message about seizing the moment for healing.",
+                        type: "video",
+                        url: "https://youtu.be/A8r4PZx1NFY",
+                        external: true
+                    },
+                    {
+                        title: "Foundation School Promo",
+                        description: "Promotional video for the Foundation School program.",
+                        type: "video",
+                        url: "#", // Placeholder - no link provided
+                        external: true
+                    },
+                    {
+                        title: "Cell Ministry",
+                        description: "Resources and videos for cell ministry activities.",
+                        type: "link",
+                        url: "https://cellministry.tv",
+                        external: true
+                    },
+                    {
+                        title: "Festival of Miracles",
+                        description: "Videos and resources from the Festival of Miracles events.",
+                        type: "video",
+                        url: "#", // Placeholder - no link provided
+                        external: true
+                    },
+                    {
+                        title: "Prophecies Fulfilled (Packing out stadiums for crusade)",
+                        description: "Documentation of fulfilled prophecies regarding stadium crusades.",
+                        type: "video",
+                        url: "#", // Placeholder - no link provided
+                        external: true
+                    },
+                    {
+                        title: "Healing Streams Affirmations",
+                        description: "Positive affirmations and declarations for healing.",
+                        type: "audio",
+                        url: "#", // Placeholder - no link provided
+                        external: true
+                    }
+                ]
+            },
+            {
+                id: "trainings",
+                title: "Trainings",
+                icon: "fas fa-graduation-cap",
+                resources: [
+                    {
+                        title: "Pre-Program Training",
+                        description: "Comprehensive training materials for pre-program preparation.",
+                        type: "doc",
+                        url: "https://docs.google.com/document/d/1G_s6WMQfaETcQHVVhBq-RTUPSSmyOXOt31oDg1uacRI/edit?usp=drive_link",
+                        external: true
+                    },
+                    {
+                        title: "Post-Program Training Schedule",
+                        description: "Schedule and materials for post-program training sessions.",
+                        type: "pdf",
+                        url: "https://drive.google.com/file/d/14XXn3mgLj7YwuItDllKmy7LF7AwTlClpF/view?usp=drive_link",
+                        external: true
+                    },
+                    {
+                        title: "Nominees",
+                        description: "List and information about program nominees and participants.",
+                        type: "spreadsheet",
+                        url: "https://docs.google.com/spreadsheets/d/1RWWYqKWGko_sGt6aa5kuCxG238UpmtfS/edit?usp=drive_link&ouid=107455283263421670283&rtpof=true&sd=true",
+                        external: true
+                    }
+                ]
+            },
+            {
+                id: "preparing-places",
+                title: "Preparing Places",
+                icon: "fas fa-map-marker-alt",
+                resources: [
+                    {
+                        title: "MyStreamSpace",
+                        description: "Platform for streaming and virtual participation.",
+                        type: "link",
+                        url: "https://mystreamspace.org",
+                        external: true
+                    },
+                    {
+                        title: "Virtual Center",
+                        description: "Access the virtual center for online participation.",
+                        type: "link",
+                        url: "https://healingstreams.tv",
+                        external: true
+                    },
+                    {
+                        title: "Letter to Use Facility for Healing Center",
+                        description: "Template letter for requesting facility use (put on letterhead).",
+                        type: "doc",
+                        url: "https://docs.google.com/document/d/1lR0ugZfBf_q0UZm8E74RxSs8h0TW_q4G/edit?usp=drive_link&ouid=107455283263421670283&rtpof=true&sd=true",
+                        external: true
+                    }
+                ]
+            },
+            {
+                id: "partnership-resources",
+                title: "Partnership Resources",
+                icon: "fas fa-handshake",
+                resources: [
+                    {
+                        title: "Type of Partnership Categories",
+                        description: "Information about different types of partnership opportunities.",
+                        type: "info",
+                        url: "#", // Placeholder - no link provided
+                        informational: true
+                    }
+                ]
+            },
+            {
+                id: "check-lists",
+                title: "Check Lists",
+                icon: "fas fa-tasks",
+                resources: [
+                    {
+                        title: "Checklist/Program Outline and Flier for Organizing HSLHS Launch",
+                        description: "Comprehensive checklist for organizing the HSLHS launch event.",
+                        type: "pdf",
+                        url: "#", // Placeholder - no link provided
+                        external: true
+                    },
+                    {
+                        title: "Checklist for Planning and Completing the HSLHS Reports",
+                        description: "Step-by-step checklist for planning and completing program reports.",
+                        type: "pdf",
+                        url: "https://drive.google.com/file/d/1ZfT-4H9iJ0KBacWNJleGcPZLZUQh1wFJ/view?usp=drive_link",
+                        external: true
+                    },
+                    {
+                        title: "Checklist for Launching",
+                        description: "Essential checklist items for program launch preparation.",
+                        type: "pdf",
+                        url: "#", // Placeholder - no link provided
+                        external: true
+                    },
+                    {
+                        title: "Week 1 in Focus Activities Flier",
+                        description: "Flier outlining week 1 focus activities and schedule.",
+                        type: "pdf",
+                        url: "#", // Placeholder - no link provided
+                        external: true
+                    },
+                    {
+                        title: "Set Targets",
+                        description: "Guidelines and templates for setting program targets and goals.",
+                        type: "pdf",
+                        url: "https://drive.google.com/file/d/1VOB0m1tKYbz6-bo8qwFI9dF2ApGAm27o/view?usp=drive_link",
+                        external: true
+                    }
+                ]
             }
         ]
     },
