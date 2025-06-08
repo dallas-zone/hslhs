@@ -81,7 +81,7 @@ const resources = {
                         title: "Church Registration Links",
                         description: "Official links for church registrations for the program.",
                         type: "doc",
-                        url: "https://docs.google.com/document/d/1Ks4TfSW4X0tkJ0sYmdphIEGLqWFesp5lRiyMkzxp2bI/edit?usp=drive_link",
+                        url: "https://drive.google.com/file/d/1FecxE3BjxTStdpb_mcPcOVLuJxA9B1Ye/view?usp=sharing",
                         external: true
                     },
                     {

@@ -535,15 +535,26 @@ section {
     z-index: 10;
 }
 
+/* UPDATED: Fixed image container to show full image */
 .card-image {
     width: 100%;
-    height: 180px;
-    object-fit: cover;
+    height: auto; /* Changed from fixed 180px to auto */
+    min-height: 200px; /* Add minimum height for consistency */
+    object-fit: contain; /* Changed from cover to contain to show full image */
+    object-position: center; /* Center the image */
     transition: var(--transition);
+    background: linear-gradient(135deg, #f8faff 0%, #e6f0ff 100%); /* Add subtle background */
+    padding: 10px; /* Add some padding around the image */
+    border-radius: var(--border-radius) var(--border-radius) 0 0; /* Round top corners */
+}
+
+/* Dark theme background for images */
+.dark-theme .card-image {
+    background: linear-gradient(135deg, #1e1e1e 0%, #2a2a2a 100%);
 }
 
 .portal-item:hover .card-image {
-    transform: scale(1.05);
+    transform: scale(1.02); /* Reduced scale to prevent overflow */
 }
 
 .content-wrapper {
@@ -908,7 +919,7 @@ section {
     }
 }
 
-/* ==== ENHANCED FOOTER STYLES - MOBILE FIRST ==== */
+/* ==== ENHANCED FOOTER STYLES ==== */
 .site-footer {
     position: relative;
     margin-top: auto;
@@ -919,7 +930,7 @@ section {
     display: block;
     position: relative;
     width: 100%;
-    height: 60px; /* Mobile first - smaller */
+    height: 120px;
     overflow: hidden;
     transform: translateY(1px);
 }
@@ -932,24 +943,24 @@ section {
 
 .footer-main {
     background-color: var(--footer-bg);
-    padding: 40px 0 30px; /* Mobile first - smaller padding */
+    padding: 60px 0 40px;
 }
 
 .footer-container {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 15px; /* Mobile first - smaller padding */
+    padding: 0 20px;
     width: 100%;
 }
 
 .footer-brand {
     text-align: center;
-    margin-bottom: 30px; /* Mobile first - smaller margin */
+    margin-bottom: 40px;
 }
 
 .footer-logo {
-    width: 80px; /* Mobile first - smaller */
-    height: 80px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     border: 3px solid rgba(255, 255, 255, 0.1);
     object-fit: cover;
@@ -963,22 +974,28 @@ section {
     border-color: var(--primary-color);
 }
 
-.footer-brand p {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 13px; /* Mobile first - smaller */
-    margin: 0;
-    max-width: 280px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.4;
+.footer-brand h3 {
+    color: var(--light-text);
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
 }
 
-/* Mobile-First Grid Layout */
+.footer-brand p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
 .footer-links-grid {
     display: grid;
-    grid-template-columns: 1fr; /* Single column on mobile */
-    gap: 25px;
-    text-align: center; /* Center align on mobile */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
 }
 
 .footer-column {
@@ -988,10 +1005,10 @@ section {
 
 .footer-column h4 {
     color: var(--light-text);
-    font-size: 16px; /* Mobile first - smaller */
-    margin-bottom: 15px;
+    font-size: 18px;
+    margin-bottom: 20px;
     position: relative;
-    padding-bottom: 8px;
+    padding-bottom: 12px;
     font-weight: 600;
 }
 
@@ -999,8 +1016,7 @@ section {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 50%; /* Center on mobile */
-    transform: translateX(-50%);
+    left: 0;
     width: 40px;
     height: 3px;
     background: var(--gradient-primary);
@@ -1011,7 +1027,6 @@ section {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    align-items: center; /* Center links on mobile */
 }
 
 .footer-links li {
@@ -1021,18 +1036,17 @@ section {
 
 .footer-links a {
     color: rgba(255, 255, 255, 0.7);
-    font-size: 14px; /* Mobile first - smaller */
+    font-size: 15px;
     transition: var(--transition-fast);
     display: flex;
     align-items: center;
     gap: 10px;
     padding: 5px 0;
-    justify-content: center; /* Center content on mobile */
 }
 
 .footer-links a:hover {
     color: var(--light-text);
-    transform: translateY(-2px); /* Subtle lift on mobile */
+    transform: translateX(5px);
 }
 
 .footer-links a i {
@@ -1041,11 +1055,10 @@ section {
     transition: var(--transition-fast);
     width: 20px;
     text-align: center;
-    flex-shrink: 0;
 }
 
 .footer-links a:hover i {
-    transform: scale(1.1); /* Scale instead of translate on mobile */
+    transform: translateX(2px);
 }
 
 .footer-bottom {
@@ -1064,7 +1077,7 @@ section {
 
 .footer-copyright {
     color: rgba(255, 255, 255, 0.6);
-    font-size: 12px; /* Mobile first - smaller */
+    font-size: 14px;
     text-align: center; 
 }
 
@@ -1072,24 +1085,29 @@ section {
     margin: 0;
 }
 
-/* KingsChat Logo Styling */
-.kingschat-logo {
-    width: 20px;
-    height: 20px;
-    margin-right: 8px;
-    vertical-align: middle;
-    border-radius: 4px;
-    transition: var(--transition-fast);
-    flex-shrink: 0;
+.social-links { /* This class seems unused in current HTML, but styles are here */
+    display: flex;
+    gap: 15px;
 }
 
-.footer-links a:hover .kingschat-logo {
-    transform: scale(1.1);
+.social-link { /* This class seems unused in current HTML */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+    transition: var(--transition);
 }
 
-.footer-links a img, 
-.footer-links a i {
-    flex-shrink: 0; 
+.social-link:hover {
+    background: var(--gradient-primary);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Dark theme footer adjustments */
@@ -1116,6 +1134,25 @@ section {
     gap: 10px;
 }
 
+/* KingsChat Logo Styling */
+.kingschat-logo {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    vertical-align: middle;
+    border-radius: 4px;
+    transition: var(--transition-fast);
+}
+
+.footer-links a:hover .kingschat-logo {
+    transform: scale(1.1);
+}
+
+.footer-links a img, /* Combined for img and i inside footer links */
+.footer-links a i {
+    flex-shrink: 0; /* Prevent icon/image from shrinking if text is long */
+}
+
 .toast {
     background-color: rgba(13, 33, 161, 0.9);
     color: white;
@@ -1125,23 +1162,26 @@ section {
     font-size: 14px;
     display: flex;
     align-items: center;
-    animation: toastFadeIn 0.3s ease; 
+    animation: toastFadeIn 0.3s ease; /* Ensure this animation is defined or use JS for opacity/transform */
     max-width: 300px;
+    /* For JS controlled fade in/out, ensure initial state is set if animation isn't 'forwards' */
     opacity: 0; 
     transform: translateY(20px);
-    transition: opacity 0.3s ease, transform 0.3s ease; 
+    transition: opacity 0.3s ease, transform 0.3s ease; /* If JS handles the transition states */
 }
+/* If using JS to add class for fade-in, this is not needed if opacity/transform are directly manipulated */
+/* .toast.show { opacity: 1; transform: translateY(0); } */
 
 .dark-theme .toast {
     background-color: rgba(51, 71, 196, 0.9);
 }
 
-.toast i { 
+.toast i { /* For icons inside toast */
     margin-right: 10px;
 }
 
-.toast.fade-out { 
-    opacity: 0 !important; 
+.toast.fade-out { /* If using JS to add class for fade-out */
+    opacity: 0 !important; /* Ensure it overrides inline style if JS sets opacity=1 initially */
     transform: translateY(20px) !important;
 }
 
@@ -1156,136 +1196,7 @@ section {
     to { opacity: 0; transform: translateY(20px); }
 }
 
-/* ==== RESPONSIVE BREAKPOINTS ==== */
-
-/* Small tablets and large phones */
-@media (min-width: 576px) {
-    .footer-wave {
-        height: 80px;
-    }
-    
-    .footer-main {
-        padding: 50px 0 35px;
-    }
-    
-    .footer-container {
-        padding: 0 20px;
-    }
-    
-    .footer-brand {
-        margin-bottom: 35px;
-    }
-    
-    .footer-logo {
-        width: 90px;
-        height: 90px;
-    }
-    
-    .footer-brand p {
-        font-size: 14px;
-    }
-    
-    .footer-column h4 {
-        font-size: 17px;
-    }
-    
-    .footer-links a {
-        font-size: 15px;
-    }
-    
-    .footer-copyright {
-        font-size: 13px;
-    }
-    
-    .footer-links-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
-    }
-}
-
-/* Tablets */
-@media (min-width: 768px) {
-    .footer-wave {
-        height: 100px;
-    }
-    
-    .footer-main {
-        padding: 60px 0 40px;
-    }
-    
-    .footer-brand {
-        margin-bottom: 40px;
-    }
-    
-    .footer-logo {
-        width: 100px;
-        height: 100px;
-    }
-    
-    .footer-brand p {
-        font-size: 14px;
-    }
-    
-    .footer-column h4 {
-        font-size: 18px;
-        margin-bottom: 20px;
-    }
-    
-    .footer-links-grid {
-        grid-template-columns: repeat(3, 1fr);
-        text-align: left; /* Left align on larger screens */
-    }
-    
-    .footer-column h4::after {
-        left: 0; /* Left align underline on larger screens */
-        transform: none;
-    }
-    
-    .footer-links {
-        align-items: flex-start; /* Left align links on larger screens */
-    }
-    
-    .footer-links a {
-        justify-content: flex-start; /* Left align content on larger screens */
-    }
-    
-    .footer-links a:hover {
-        transform: translateX(5px); /* Horizontal movement on larger screens */
-    }
-    
-    .footer-links a:hover i {
-        transform: translateX(2px); /* Icon movement on larger screens */
-    }
-}
-
-/* Small desktops */
-@media (min-width: 992px) {
-    .footer-wave {
-        height: 120px;
-    }
-    
-    .footer-main {
-        padding: 60px 0 40px;
-    }
-    
-    .footer-links-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 30px;
-    }
-}
-
-/* Large desktops */
-@media (min-width: 1200px) {
-    .footer-main {
-        padding: 60px 0 40px;
-    }
-    
-    .footer-brand p {
-        font-size: 14px;
-    }
-}
-
-/* ==== Media Queries for Other Components ==== */
+/* ==== Media Queries ==== */
 @media (max-width: 1200px) {
     .container {
         max-width: 95%;
@@ -1298,20 +1209,48 @@ section {
 
 @media (max-width: 992px) {
     .portal-item {
-        padding: 0; 
+        padding: 0; /* Revisit this - might make content too tight to edges */
     }
     
     .quick-stats {
         flex-wrap: wrap;
+        /* Removed grid-template-columns for flex-wrap to work effectively */
     }
     
     .stat-item {
         min-width: 150px;
-        flex-basis: calc(50% - 10px); 
+        flex-basis: calc(50% - 10px); /* Example for 2 columns on medium screens */
     }
     
     .testimonial-carousel {
-        min-height: 250px; 
+        min-height: 250px; /* Adjusted from height to min-height */
+    }
+    
+    .footer-links-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+    }
+    
+    /* Styles from resource-styles.css integrated for consistency */
+    .resource-user-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .category-filter {
+        width: 100%;
+    }
+    
+    .filter-select {
+        width: 100%;
+    }
+    
+    .resource-preview-footer {
+        flex-wrap: wrap;
+    }
+    
+    .primary-btn, .secondary-btn { /* These classes from resource-styles might need to be defined or used carefully */
+        flex: 100%;
     }
 }
 
@@ -1336,7 +1275,13 @@ section {
         margin: 0 auto;
     }
     
-    .stat-item { 
+    /* UPDATED: Better responsive image handling for mobile */
+    .card-image {
+        min-height: 160px; /* Reduced min-height for mobile */
+        padding: 8px; /* Reduced padding for mobile */
+    }
+    
+    .stat-item { /* Ensure it takes full width or desired width in single column */
         flex-basis: 100%;
     }
     
@@ -1345,7 +1290,41 @@ section {
     }
     
     .testimonial-carousel {
-        min-height: 280px; 
+        min-height: 280px; /* Adjusted from height */
+    }
+    
+    .footer-links-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    
+    .footer-column h4::after {
+        left: 0;
+        transform: none;
+    }
+    
+    .footer-bottom .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .social-links { /* Ensure if this is used, it centers */
+        justify-content: center;
+    }
+        
+    /* Styles from resource-styles.css integrated */
+    .resources-list { /* Assuming .resources-list is a class from resource-styles.css used elsewhere */
+        grid-template-columns: 1fr;
+    }
+    
+    .portal-section-header { /* Assuming .portal-section-header is from resource-styles.css */
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+        
+    .share-options { /* Assuming .share-options is from resource-styles.css */
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* More flexible than fixed 3 columns */
     }
 }
 
@@ -1362,11 +1341,60 @@ section {
         padding: 30px 20px;
     }
     
+    /* UPDATED: Even smaller images for very small screens */
+    .card-image {
+        min-height: 140px; /* Further reduced for very small screens */
+        padding: 6px; /* Minimal padding for small screens */
+    }
+    
     .testimonial-carousel {
-        min-height: 320px; 
+        min-height: 320px; /* Adjusted from height */
+    }
+    
+    .footer-links-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .footer-column h4::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .footer-links li {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .footer-links a:hover {
+        transform: translateY(-3px); /* Re-add hover effect */
+    }
+    
+    .resource-header { /* Style from resource-styles.css */
+        padding: 40px 0 30px;
+    }
+    
+    .footer-wave {
+        height: 80px;
+    }
+
+    /* Styles from resource-styles.css for small screens */
+     .resource-content { /* This is from resource-styles, ensure it's intended here or specific */
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+    
+    .resource-icon { /* This is from resource-styles */
+        margin-bottom: 5px;
+    }
+
+    .share-options {  /* This is from resource-styles */
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* More flexible */
     }
 }
 
+/* Mobile-first footer improvements (already present, good) */
 @media (max-width: 480px) {
     .footer-wave {
         height: 60px;
@@ -1379,6 +1407,10 @@ section {
     .footer-logo {
         width: 80px;
         height: 80px;
+    }
+    
+    .footer-brand h3 {
+        font-size: 18px;
     }
     
     .footer-brand p {
@@ -1397,10 +1429,28 @@ section {
         font-size: 14px;
     }
     
+    .social-link {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+    
     .footer-copyright p {
         font-size: 12px;
+    }
+    
+    /* UPDATED: Very small card images for phones */
+    .card-image {
+        min-height: 120px; /* Smallest size for phones */
+        padding: 5px; /* Minimal padding */
     }
 }
 
 /* ==== Animation Classes ==== */
 /* Keyframes are already defined above, no need to repeat */
+/* .fade-in, .slide-in-right, .slide-in-left are fine */
+
+/* Staggered animations for resource items, ensure specificity if needed */
+/* The current rule applies to any .resources-list .resource-item */
+/* .resources-list .resource-item { ... } */
+/* .resources-list .resource-item.animated { ... } */
