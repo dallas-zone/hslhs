@@ -25,8 +25,8 @@ const resources = {
                     {
                         title: "Zonal Committee Structure",
                         description: "Overview of the zonal committee structure for HSLHS.",
-                        type: "pdf",
-                        url: "https://drive.google.com/file/d/19wd474AgHrhsKTj4oxWfldblqRwTk5Yl/view?usp=drive_link",
+                        type: "PNG",
+                        url: "https://drive.google.com/file/d/1n3ZDrwnNasCsTaSDFr4Ty-3RA3bKjqWm/view?usp=sharing",
                         external: true
                     },
                     {
