@@ -994,7 +994,7 @@ section {
 
 .footer-links-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
 }
 
@@ -1227,7 +1227,7 @@ section {
     }
     
     .footer-links-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: repeat(2, 1fr); /* UPDATED: Changed to 2 columns for tablets */
         gap: 30px;
     }
     
