@@ -3,6 +3,7 @@
  * 
  * This script handles all portal page functionality:
  * - Form submission and data collection
+ * - Formspree integration for email notifications
  * - Resource rendering and display for Pre-HSLHS, HSLHS Program, and Post-HSLHS sections
  * - Download and view actions for resources
  * - Animation and interaction for resource categories
@@ -440,6 +441,104 @@ const resources = {
     }
 };
 
+// Formspree configuration
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xrbkpwql';
+
+/**
+ * Checks if user has already been sent to Formspree
+ * @param {string} email - User email
+ * @param {string} role - User role  
+ * @returns {boolean} - True if already sent
+ */
+function hasAlreadyNotified(email, role) {
+    const notifiedUsers = JSON.parse(localStorage.getItem('hs_notified_users') || '[]');
+    const userKey = `${email.toLowerCase()}_${role}`;
+    return notifiedUsers.includes(userKey);
+}
+
+/**
+ * Marks user as notified in localStorage
+ * @param {string} email - User email
+ * @param {string} role - User role
+ */
+function markAsNotified(email, role) {
+    const notifiedUsers = JSON.parse(localStorage.getItem('hs_notified_users') || '[]');
+    const userKey = `${email.toLowerCase()}_${role}`;
+    
+    if (!notifiedUsers.includes(userKey)) {
+        notifiedUsers.push(userKey);
+        localStorage.setItem('hs_notified_users', JSON.stringify(notifiedUsers));
+    }
+}
+
+/**
+ * Sends form data to Formspree for email notification (unique entries only)
+ * @param {Object} userData - User data to send
+ * @returns {Promise} - Formspree submission promise
+ */
+async function sendToFormspree(userData) {
+    // Check if we've already sent notification for this user
+    if (hasAlreadyNotified(userData.email, userData.role)) {
+        console.log('Email notification already sent for this user, skipping...');
+        return { success: true, skipped: true, reason: 'already_notified' };
+    }
+
+    try {
+        const formData = new FormData();
+        
+        // Add form fields for Formspree
+        formData.append('email', userData.email);
+        formData.append('role', userData.role);
+        formData.append('timestamp', userData.timestamp);
+        formData.append('access_type', 'Resource Portal Access');
+        formData.append('notification_subject', 'New Resource Portal Access - Healing Streams Dallas Zone');
+        
+        // Create a descriptive message with Chicago time
+        const chicagoTime = new Date(userData.timestamp).toLocaleString('en-US', {
+            timeZone: 'America/Chicago',
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            timeZoneName: 'short'
+        });
+        
+        const message = `
+New Resource Portal Access:
+
+Email: ${userData.email}
+Role: ${userData.role}
+Access Time: ${chicagoTime}
+Portal: Healing Streams Dallas Zone Resources
+
+This user has successfully accessed the resource portal and can now view all Pre-HSLHS, HSLHS Program, and Post-HSLHS materials.
+        `.trim();
+        
+        formData.append('message', message);
+        
+        const response = await fetch(FORMSPREE_ENDPOINT, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+        
+        if (response.ok) {
+            console.log('Successfully sent to Formspree');
+            return { success: true, response };
+        } else {
+            console.error('Formspree error:', response.statusText);
+            return { success: false, error: response.statusText };
+        }
+    } catch (error) {
+        console.error('Formspree submission failed:', error);
+        return { success: false, error: error.message };
+    }
+}
+
 // DOM Ready Event Listener
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Portal page loaded - combined structure');
@@ -466,7 +565,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const resourceForm = document.getElementById('resource-form');
     if (resourceForm) {
-        resourceForm.addEventListener('submit', function(e) {
+        resourceForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             console.log('Resource form submitted');
             
@@ -485,10 +584,26 @@ document.addEventListener('DOMContentLoaded', function() {
             
             console.log('User data collected:', userData);
             
+            // Save to localStorage first
             if (window.hsDallasZone && window.hsDallasZone.formHandler) {
                 window.hsDallasZone.formHandler.saveUserData(userData);
             } else {
                 localStorage.setItem('healingStreams_user_data', JSON.stringify(userData));
+            }
+            
+            // Send to Formspree for email notification
+            try {
+                const formspreeResult = await sendToFormspree(userData);
+                
+                if (formspreeResult.success) {
+                    console.log('Email notification sent successfully');
+                } else {
+                    console.warn('Email notification failed, but proceeding with portal access:', formspreeResult.error);
+                    // Don't block portal access if email fails
+                }
+            } catch (error) {
+                console.warn('Email notification error, but proceeding with portal access:', error);
+                // Don't block portal access if email fails
             }
             
             setTimeout(() => {
@@ -511,9 +626,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (typeof gtag === 'function') {
                     gtag('event', 'form_submit', {
                         'event_category': 'portal_access',
-                        'event_label': 'combined_resources_portal' 
+                        'event_label': 'combined_resources_portal',
+                        'user_role': userData.role
                     });
                 }
+                
+                // Show success notification
+                showToast('Welcome! Resources loaded successfully.', '<i class="fas fa-check-circle"></i>', 4000);
             }, 1000); // Simulate API call or processing time
         });
     } else {

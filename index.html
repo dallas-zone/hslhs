@@ -11,12 +11,94 @@
     
     <meta property="og:title" content="Healing Streams Dallas Zone | Resources Hub">
     <meta property="og:description" content="Access divine healing resources, testimony materials, and prayer guides for the Dallas Zone.">
-    <meta property="og:image" content="images/card.jpg"> <meta property="og:url" content="https://dallaszone.healingstreams.github.io"> <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR-ANALYTICS-ID"></script>
+    <meta property="og:image" content="images/card.jpg">
+    <meta property="og:url" content="https://dallaszone.healingstreams.github.io">
+    
+    <!-- Enhanced Google Analytics 4 Setup -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6D5BP47Y6G"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-YOUR-ANALYTICS-ID');
+
+        // Helper functions for enhanced tracking
+        function getPageCategory() {
+            return 'Landing Page';
+        }
+        
+        function getUserType() {
+            const userData = JSON.parse(localStorage.getItem('healingStreams_user_data') || '{}');
+            return userData.role || 'visitor';
+        }
+        
+        function getDeviceType() {
+            const width = window.innerWidth;
+            if (width <= 768) return 'mobile';
+            if (width <= 1024) return 'tablet';
+            return 'desktop';
+        }
+        
+        function hasAnalyticsConsent() {
+            const consent = localStorage.getItem('analytics_consent');
+            return consent === 'granted';
+        }
+
+        // Enhanced GA4 Configuration
+        gtag('config', 'G-6D5BP47Y6G', {
+            // Core page tracking
+            page_title: document.title,
+            page_location: window.location.href,
+            send_page_view: true,
+            
+            // Privacy compliance
+            anonymize_ip: true,
+            allow_google_signals: hasAnalyticsConsent(),
+            ads_data_redaction: true,
+            
+            // Enhanced measurement for business intelligence
+            enhanced_measurement: {
+                scrolls: true,
+                outbound_clicks: true,
+                site_search: true,
+                video_engagement: true,
+                file_downloads: true
+            },
+            
+            // Custom dimensions for business tracking
+            custom_map: {
+                'custom_parameter_1': 'user_role',
+                'custom_parameter_2': 'resource_category',
+                'custom_parameter_3': 'portal_section',
+                'custom_parameter_4': 'engagement_level',
+                'custom_parameter_5': 'business_intent'
+            },
+            
+            // Content grouping
+            content_group1: 'Healing Streams Portal',
+            content_group2: getPageCategory(),
+            content_group3: 'Patrick AI Africa Content',
+            
+            // User properties for segmentation
+            user_properties: {
+                user_type: getUserType(),
+                device_category: getDeviceType(),
+                first_visit: !localStorage.getItem('returning_visitor'),
+                language: navigator.language,
+                portal_version: '2.0'
+            }
+        });
+
+        // Track enhanced landing page view
+        gtag('event', 'enhanced_page_view', {
+            event_category: 'engagement',
+            event_label: 'home_page',
+            page_type: 'landing',
+            user_intent: 'discovery',
+            brand_positioning: 'african_ai_oracle'
+        });
+
+        // Mark as returning visitor
+        localStorage.setItem('returning_visitor', 'true');
     </script>
 </head>
 <body class="loading">
@@ -32,15 +114,17 @@
                 <img src="images/logo.png" alt="Healing Streams Logo" class="logo">
                 <div class="logo-aura"></div>
             </div>
-            <h1>CHRIST EMBASSY <span class="highlight">DALLAS ZONE</span></h1>
-            <p class="tagline">Welcome to the Healing Streams Committee Resource Portal</p>
+            <h1>DALLAS <span class="highlight">ZONE</span></h1>
+            <p class="tagline">Welcome to Healing Streams Resource Portal</p>
         </header>
         
         <main id="resources-section">
             <div class="portal-grid" id="portal-grid">
-                <div class="portal-item resources"> <div class="card-shine"></div>
+                <div class="portal-item resources"> 
+                    <div class="card-shine"></div>
                     <div class="portal-badge">Resources</div>
-                    <img src="images/card.jpg" alt="Resource Portal" class="card-image"> <div class="content-wrapper">
+                    <img src="images/card.jpg" alt="Resource Portal" class="card-image">
+                    <div class="content-wrapper">
                         <h2>Resource Portal</h2>
                         <p class="card-description">Access all Pre-HSLHS, HSLHS Program, and Post-HSLHS materials, including committee logistics, ministry resources, retainership tips, and more.</p>
                         <div class="card-cta">
@@ -52,7 +136,8 @@
                 <div class="portal-item admin">
                     <div class="card-shine"></div>
                     <div class="portal-badge">Admin</div>
-                    <img src="images/card.jpg" alt="Admin Dashboard" class="card-image"> <div class="content-wrapper">
+                    <img src="images/card.jpg" alt="Admin Dashboard" class="card-image">
+                    <div class="content-wrapper">
                         <h2>Admin Dashboard</h2>
                         <p class="card-description">Analytics, reporting, and administrative tools for Healing Streams team members.</p>
                         <div class="card-cta">
@@ -65,6 +150,12 @@
     </div>
     
     <footer class="site-footer">
+        <div class="footer-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#0A0A0A" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,165.3C384,171,480,149,576,128C672,107,768,85,864,96C960,107,1056,149,1152,154.7C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </div>
+
         <div class="footer-main">
             <div class="footer-container">
                 <div class="footer-brand">
@@ -73,14 +164,6 @@
                 </div>
                 
                 <div class="footer-links-grid">
-                    <!-- <div class="footer-column">
-                        <h4>Quick Links</h4>
-                        <ul class="footer-links">
-                            <li><a href="portal.html"><i class="fas fa-chevron-right"></i> Resource Portal</a></li>
-                            <li><a href="admin.html"><i class="fas fa-chevron-right"></i> Admin Dashboard</a></li>
-                        </ul>
-                    </div> -->
-                    
                     <div class="footer-column">
                         <h4>Resources</h4>
                         <ul class="footer-links">
@@ -97,7 +180,6 @@
                             <li><a href="https://httnmagazine.org/" target="_blank"><i class="fas fa-external-link-alt"></i> HTTN Magazine</a></li>
                             <li><a href="https://www.nowthatyouarebornagain.org/" target="_blank"><i class="fas fa-book"></i> Now That You Are Born Again</a></li>
                             <li><a href="https://app.rhapsodyofrealities.org/" target="_blank"><i class="fas fa-book-open"></i> Rhapsody of Realities</a></li>
-                            <!-- <li><a href="https://cellministry.tv" target="_blank"><i class="fas fa-external-link-alt"></i> Cell Ministry</a></li> -->                          
                         </ul>
                     </div>
 
@@ -122,6 +204,8 @@
     
     <div id="toast-container" class="toast-container"></div>
     
+    <script src="js/enhanced-analytics.js"></script>
+    <script src="js/privacy-consent.js"></script>
     <script src="vendor/form.js"></script>
     <script src="js/app.js"></script>
     <script src="js/download-handler.js"></script>
