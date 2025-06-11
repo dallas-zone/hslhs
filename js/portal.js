@@ -25,7 +25,7 @@ const resources = {
                     {
                         title: "Zonal Committee Structure",
                         description: "Overview of the zonal committee structure for HSLHS.",
-                        type: "PNG",
+                        type: "JPEG",
                         url: "https://drive.google.com/file/d/1Du2GQEX_1gfaw9ZOwVsP8oEwW-kxYvTi/view?usp=sharing",
                         external: true
                     },
@@ -257,7 +257,7 @@ const resources = {
                         title: "Letter to Use Facility for Healing Center",
                         description: "Template letter for requesting facility use (put on letterhead).",
                         type: "doc",
-                        url: "https://docs.google.com/document/d/1lR0ugZfBf_q0UZm8E74RxSs8h0TW_q4G/edit?usp=drive_link&ouid=107455283263421670283&rtpof=true&sd=true",
+                        url: "https://docs.google.com/document/d/1JQJvyQUipVSohKFC4ZNddy5Lj-_AIaix/edit?usp=sharing&ouid=103193794838078583968&rtpof=true&sd=true",
                         external: true
                     }
                 ]
@@ -270,7 +270,7 @@ const resources = {
                     {
                         title: "Type of Partnership Categories",
                         description: "Information about different types of partnership opportunities.",
-                        type: "info",
+                        type: "JPEG",
                         url: "https://drive.google.com/file/d/1OwH3MVtfW827S8zd3Tk9rYszlN7Qa4hf/view?usp=sharing", // Placeholder - no link provided
                         informational: true
                     }
