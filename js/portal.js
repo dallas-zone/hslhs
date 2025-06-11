@@ -252,7 +252,7 @@ const resources = {
                         type: "doc",
                         url: "https://docs.google.com/document/d/1JQJvyQUipVSohKFC4ZNddy5Lj-_AIaix/edit?usp=sharing&ouid=103193794838078583968&rtpof=true&sd=true",
                         external: true
-                    }
+                    },
                     {
                         title: "MyStreamSpace",
                         description: "Platform for streaming and virtual participation.",
