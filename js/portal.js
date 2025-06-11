@@ -100,6 +100,13 @@ const resources = {
                         external: true
                     },
                     {
+                        title: "Be a Herald Flier",
+                        description: "Downloadable flier for promoting the Herald program.",
+                        type: "pdf",
+                        url: "https://drive.google.com/file/d/14XEoWFHCvocOVb-nHC8qvn0UNjRKxpYD/view?usp=drive_link",
+                        external: true
+                    },
+                    {
                         title: "HERALD Registration",
                         description: "Register to become a HERALD for the Healing Streams program.",
                         type: "link",
@@ -122,23 +129,16 @@ const resources = {
                 resources: [
                     {
                         title: "Branding and Publicity Materials",
-                        description: "Access publicity and branding materials for HSLHS promotion.",
+                        description: "Access publicity and branding materials (Banners of different sizes, Chest Tag, Envelope design, Flier, Sponsorship Sign-up form) for HSLHS promotion.",
                         type: "link",
-                        url: "https://ethsch.org/2CD",
+                        url: "https://drive.google.com/drive/folders/1xOenEeeuXLXhZ377CD-kqy2K1gskkQvU?usp=sharing",
                         external: true
                     },
                     {
-                        title: "Publicity and Branding Expectations",
-                        description: "Guidelines and expectations for publicity and branding activities.",
+                        title: "T-Shirt Logo Design",
+                        description: "Logo for T-Shirt Branding.",
                         type: "doc",
-                        url: "https://docs.google.com/document/d/1Y4RhQVu3iLBi9f7RegTwvXXhTpcQnxUPayoTbQZhdg0/edit?usp=drive_link",
-                        external: true
-                    },
-                    {
-                        title: "Be a Herald Flier",
-                        description: "Downloadable flier for promoting the Herald program.",
-                        type: "pdf",
-                        url: "https://drive.google.com/file/d/14XEoWFHCvocOVb-nHC8qvn0UNjRKxpYD/view?usp=drive_link",
+                        url: "https://drive.google.com/file/d/1RnD6qfcy9M8wk8SGsWNRHMjLDBAxdoMM/view?usp=sharing",
                         external: true
                     }
                 ]
