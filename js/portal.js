@@ -149,24 +149,10 @@ const resources = {
                 icon: "fas fa-video",
                 resources: [
                     {
-                        title: "Raised from Dead Series (ROR, Pastor Bear Testimony)",
-                        description: "Powerful testimonies of resurrection from the dead.",
-                        type: "video",
-                        url: "https://www.youtube.com/watch?v=u33yMb3_DMF&ab_channel=CHRISTEMBASSYTURKEY",
-                        external: true
-                    },
-                    {
-                        title: "HSLHS Testimonies",
+                        title: "HSLHS Testimonies and Programs",
                         description: "Collection of testimonies from previous Healing Streams programs.",
                         type: "video",
-                        url: "https://www.youtube.com/watch?v=_-zzHtrLobk&ab_channel=HealingStreamsDigital",
-                        external: true
-                    },
-                    {
-                        title: "HSLHS Prophecies",
-                        description: "Prophetic words and declarations for Healing Streams.",
-                        type: "video",
-                        url: "#", // Placeholder - no link provided
+                        url: "https://healingstreams.tv/",
                         external: true
                     },
                     {
@@ -174,41 +160,6 @@ const resources = {
                         description: "Inspirational message about seizing the moment for healing.",
                         type: "video",
                         url: "https://youtu.be/A8r4PZx1NFY",
-                        external: true
-                    },
-                    {
-                        title: "Foundation School Promo",
-                        description: "Promotional video for the Foundation School program.",
-                        type: "video",
-                        url: "#", // Placeholder - no link provided
-                        external: true
-                    },
-                    {
-                        title: "Cell Ministry",
-                        description: "Resources and videos for cell ministry activities.",
-                        type: "link",
-                        url: "https://cellministry.tv",
-                        external: true
-                    },
-                    {
-                        title: "Festival of Miracles",
-                        description: "Videos and resources from the Festival of Miracles events.",
-                        type: "video",
-                        url: "#", // Placeholder - no link provided
-                        external: true
-                    },
-                    {
-                        title: "Prophecies Fulfilled (Packing out stadiums for crusade)",
-                        description: "Documentation of fulfilled prophecies regarding stadium crusades.",
-                        type: "video",
-                        url: "#", // Placeholder - no link provided
-                        external: true
-                    },
-                    {
-                        title: "Healing Streams Affirmations",
-                        description: "Positive affirmations and declarations for healing.",
-                        type: "audio",
-                        url: "#", // Placeholder - no link provided
                         external: true
                     }
                 ]
@@ -219,17 +170,10 @@ const resources = {
                 icon: "fas fa-graduation-cap",
                 resources: [
                     {
-                        title: "Pre-Program Training",
+                        title: "Training Portal",
                         description: "Comprehensive training materials for pre-program preparation.",
                         type: "doc",
-                        url: "",
-                        external: true
-                    },
-                    {
-                        title: "Post-Program Training Schedule",
-                        description: "Schedule and materials for post-program training sessions.",
-                        type: "pdf",
-                        url: "",
+                        url: "https://www.training.hslhs.org/",
                         external: true
                     }
                 ]
@@ -289,38 +233,17 @@ const resources = {
                 icon: "fas fa-tasks",
                 resources: [
                     {
-                        title: "Checklist/Program Outline and Flier for Organizing HSLHS Launch",
-                        description: "Comprehensive checklist for organizing the HSLHS launch event.",
-                        type: "pdf",
-                        url: "#", // Placeholder - no link provided
-                        external: true
-                    },
-                    {
                         title: "Checklist for Planning and Completing the HSLHS Reports",
                         description: "Step-by-step checklist for planning and completing program reports.",
-                        type: "pdf",
-                        url: "https://drive.google.com/file/d/1ZfT-4H9iJ0KBacWNJleGcPZLZUQh1wFJ/view?usp=drive_link",
-                        external: true
-                    },
-                    {
-                        title: "Checklist for Launching",
-                        description: "Essential checklist items for program launch preparation.",
-                        type: "pdf",
-                        url: "#", // Placeholder - no link provided
-                        external: true
-                    },
-                    {
-                        title: "Week 1 in Focus Activities Flier",
-                        description: "Flier outlining week 1 focus activities and schedule.",
-                        type: "pdf",
-                        url: "#", // Placeholder - no link provided
+                        type: "doc",
+                        url: "https://docs.google.com/document/d/1wt4GSY5wa0MXqDHLoO1auhK6EH1rxM4B/edit?usp=sharing&ouid=103193794838078583968&rtpof=true&sd=true",
                         external: true
                     },
                     {
                         title: "Set Targets",
                         description: "Guidelines and templates for setting program targets and goals.",
-                        type: "pdf",
-                        url: "https://drive.google.com/file/d/1VOB0m1tKYbz6-bo8qwFI9dF2ApGAm27o/view?usp=drive_link",
+                        type: "png",
+                        url: "https://drive.google.com/file/d/1T2W3_0xXd5UwQ2kqixD0TkbNcVz-blk2/view?usp=sharing",
                         external: true
                     }
                 ]
@@ -400,11 +323,25 @@ const resources = {
                 title: "Tips for Retainership",
                 icon: "fas fa-hand-holding-heart",
                 resources: [
+                    // {
+                    //     title: "Retainership Guidelines",
+                    //     description: "Guidelines for retaining participants after the Healing Streams program.",
+                    //     type: "doc",
+                    //     url: "https://docs.google.com/document/d/1y7kTm9gJB-iquR3KYNfWlVyfDGhsx-y9rEFXpNJNZOU/edit?usp=sharing",
+                    //     external: true
+                    // },
                     {
-                        title: "Retainership Guidelines",
-                        description: "Guidelines for retaining participants after the Healing Streams program.",
-                        type: "doc",
-                        url: "https://docs.google.com/document/d/1y7kTm9gJB-iquR3KYNfWlVyfDGhsx-y9rEFXpNJNZOU/edit?usp=sharing",
+                        title: "Foundation School Promo",
+                        description: "Promotional video for the Foundation School program.",
+                        type: "video",
+                        url: "#", // Placeholder - no link provided
+                        external: true
+                    },
+                    {
+                        title: "Cell Ministry",
+                        description: "Resources and videos for cell ministry activities.",
+                        type: "link",
+                        url: "https://cellministry.tv",
                         external: true
                     }
                 ]
@@ -435,13 +372,6 @@ const resources = {
                         url: "https://drive.google.com/file/d/1EzQL26xbtf2ahhFt78FUdxLs1hIlkH2v/view?usp=sharing", // Placeholder
                         external: true
                     }
-                    // {
-                    //     title: "2025 March Edition",
-                    //     description: "Insights and lessons from the March 2025 edition of Healing Streams.",
-                    //     type: "info",
-                    //     url: "#", // Placeholder
-                    //     informational: true
-                    // }
                 ]
             }
         ]
