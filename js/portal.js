@@ -171,8 +171,8 @@ const resources = {
                 resources: [
                     {
                         title: "Training Portal",
-                        description: "Comprehensive training materials for pre-program preparation.",
-                        type: "doc",
+                        description: "Comprehensive training materials for HSLHS preparation.",
+                        type: "link",
                         url: "https://www.training.hslhs.org/",
                         external: true
                     }
@@ -240,10 +240,17 @@ const resources = {
                         external: true
                     },
                     {
-                        title: "Set Targets",
-                        description: "Guidelines and templates for setting program targets and goals.",
+                        title: "Targets Scorecard",
+                        description: "Scorecard template for program targets.",
                         type: "png",
                         url: "https://drive.google.com/file/d/1T2W3_0xXd5UwQ2kqixD0TkbNcVz-blk2/view?usp=sharing",
+                        external: true
+                    },
+                    {
+                        title: "Set Targets",
+                        description: "Submit program targets for tracking.",
+                        type: "link",
+                        url: "https://www.kingsforms.online/dallaszone-hslhs-targets",
                         external: true
                     }
                 ]
