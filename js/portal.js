@@ -137,7 +137,7 @@ const resources = {
                     {
                         title: "T-Shirt Logo Design",
                         description: "Logo for T-Shirt Branding.",
-                        type: "doc",
+                        type: "jpeg",
                         url: "https://drive.google.com/file/d/1RnD6qfcy9M8wk8SGsWNRHMjLDBAxdoMM/view?usp=sharing",
                         external: true
                     }
@@ -240,6 +240,20 @@ const resources = {
                 icon: "fas fa-map-marker-alt",
                 resources: [
                     {
+                        title: "Places Penetration Strategy Guide",
+                        description: "Guide for discovering and converting places into cells, fellowships and churches post-HSLHS.",
+                        type: "pdf",
+                        url: "https://drive.google.com/file/d/1zRDZcQQ4IR7B0mR16cqbwfqfTReLABfi/view?usp=sharing",
+                        external: true
+                    },
+                    {
+                        title: "Letter to Use Facility for Healing Center",
+                        description: "Template letter for requesting facility use (put on letterhead).",
+                        type: "doc",
+                        url: "https://docs.google.com/document/d/1JQJvyQUipVSohKFC4ZNddy5Lj-_AIaix/edit?usp=sharing&ouid=103193794838078583968&rtpof=true&sd=true",
+                        external: true
+                    }
+                    {
                         title: "MyStreamSpace",
                         description: "Platform for streaming and virtual participation.",
                         type: "link",
@@ -251,13 +265,6 @@ const resources = {
                         description: "Access the virtual center for online participation via H.E.R.A.L.D.",
                         type: "link",
                         url: "https://healingstreams.tv",
-                        external: true
-                    },
-                    {
-                        title: "Letter to Use Facility for Healing Center",
-                        description: "Template letter for requesting facility use (put on letterhead).",
-                        type: "doc",
-                        url: "https://docs.google.com/document/d/1JQJvyQUipVSohKFC4ZNddy5Lj-_AIaix/edit?usp=sharing&ouid=103193794838078583968&rtpof=true&sd=true",
                         external: true
                     }
                 ]
@@ -332,7 +339,7 @@ const resources = {
                 resources: [
                     {
                         title: "Now That You Are Born Again",
-                        description: "Resources for new converts in the Christian faith.",
+                        description: "Resource for new converts in the Christian faith. You can use code: 4763.",
                         type: "link",
                         url: "http://www.nowthatyouarebornagain.org",
                         external: true
@@ -408,10 +415,10 @@ const resources = {
                 icon: "fas fa-chart-simple",
                 resources: [
                     {
-                        title: "Zonal Report",
-                        description: "Template for creating comprehensive zonal reports.",
+                        title: "Church Report",
+                        description: "Form for submitting comprehensive church reports.",
                         type: "link", // Assuming KingsForms is a web link
-                        url: "https://www.kingsforms.online/hslhs-dallas-zone-report",
+                        url: "",
                         external: true
                     }
                 ]
@@ -422,19 +429,19 @@ const resources = {
                 icon: "fas fa-lightbulb",
                 resources: [
                     {
-                        title: "2024 October Edition",
-                        description: "Insights and lessons from the October 2024 edition of Healing Streams.",
-                        type: "info",
-                        url: "#", // Placeholder
-                        informational: true
+                        title: "2024 July Edition",
+                        description: "Insights and lessons from the July 2024 edition of Healing Streams.",
+                        type: "pdf",
+                        url: "https://drive.google.com/file/d/1EzQL26xbtf2ahhFt78FUdxLs1hIlkH2v/view?usp=sharing", // Placeholder
+                        external: true
                     },
-                    {
-                        title: "2025 March Edition",
-                        description: "Insights and lessons from the March 2025 edition of Healing Streams.",
-                        type: "info",
-                        url: "#", // Placeholder
-                        informational: true
-                    }
+                    // {
+                    //     title: "2025 March Edition",
+                    //     description: "Insights and lessons from the March 2025 edition of Healing Streams.",
+                    //     type: "info",
+                    //     url: "#", // Placeholder
+                    //     informational: true
+                    // }
                 ]
             }
         ]
