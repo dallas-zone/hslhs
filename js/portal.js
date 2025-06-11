@@ -222,21 +222,14 @@ const resources = {
                         title: "Pre-Program Training",
                         description: "Comprehensive training materials for pre-program preparation.",
                         type: "doc",
-                        url: "https://docs.google.com/document/d/1G_s6WMQfaETcQHVVhBq-RTUPSSmyOXOt31oDg1uacRI/edit?usp=drive_link",
+                        url: "",
                         external: true
                     },
                     {
                         title: "Post-Program Training Schedule",
                         description: "Schedule and materials for post-program training sessions.",
                         type: "pdf",
-                        url: "https://drive.google.com/file/d/14XXn3mgLj7YwuItDllKmy7LF7AwTlClpF/view?usp=drive_link",
-                        external: true
-                    },
-                    {
-                        title: "Nominees",
-                        description: "List and information about program nominees and participants.",
-                        type: "spreadsheet",
-                        url: "https://docs.google.com/spreadsheets/d/1RWWYqKWGko_sGt6aa5kuCxG238UpmtfS/edit?usp=drive_link&ouid=107455283263421670283&rtpof=true&sd=true",
+                        url: "",
                         external: true
                     }
                 ]
@@ -255,7 +248,7 @@ const resources = {
                     },
                     {
                         title: "Virtual Center",
-                        description: "Access the virtual center for online participation.",
+                        description: "Access the virtual center for online participation via H.E.R.A.L.D.",
                         type: "link",
                         url: "https://healingstreams.tv",
                         external: true
@@ -278,7 +271,7 @@ const resources = {
                         title: "Type of Partnership Categories",
                         description: "Information about different types of partnership opportunities.",
                         type: "info",
-                        url: "#", // Placeholder - no link provided
+                        url: "https://drive.google.com/file/d/1OwH3MVtfW827S8zd3Tk9rYszlN7Qa4hf/view?usp=sharing", // Placeholder - no link provided
                         informational: true
                     }
                 ]
@@ -348,18 +341,18 @@ const resources = {
                         title: "Why You Should Go To Church",
                         description: "Teaching on the importance of church attendance for spiritual growth.",
                         type: "doc",
-                        url: "https://drive.google.com/file/d/14YvoGgZfrPKrdXvK0xm7BqDvtIIeD52_/view?usp=drive_link",
+                        url: "https://drive.google.com/file/d/1bVxosh1FWG_ScSPrdxHNTOB4rnjYHAZD/view?usp=sharing",
                         external: true
                     },
                     {
-                        title: "RoR (TAP2READ CODE)",
-                        description: "Access to the Rhapsody of Realities devotional with promo code: TAP2READ.",
+                        title: "Rhapsody of Realities Devotional",
+                        description: "Access to the Rhapsody of Realities devotional. You can use promo code: CDP78.",
                         type: "link",
                         url: "https://app.rhapsodyofrealities.org/",
                         external: true
                     },
                     {
-                        title: "HTTN Magazines",
+                        title: "Healing To The Nations (HTTN) Magazines",
                         description: "Access to Healing to the Nations magazines for spiritual growth.",
                         type: "link",
                         url: "https://httnmagazine.org/",
@@ -374,16 +367,16 @@ const resources = {
                 resources: [
                     {
                         title: "Testimony Bank",
-                        description: "Collection of testimonies from previous Healing Streams programs.",
+                        description: "Collection of testimonies from Healing Streams programs.",
                         type: "doc",
-                        url: "https://drive.google.com/file/d/14b-FHDpeZ-lk6J7pfnL0VdsjRx48TX_S/view?usp=drive_link",
+                        url: "https://drive.google.com/file/d/1yLnD0naZ8UIqWS3X2JYhOPZiHKt-B_sD/view?usp=sharing",
                         external: true
                     },
                     {
                         title: "Viewership Report",
                         description: "Template for reporting viewership statistics for the program.",
                         type: "doc", // Assuming spreadsheet
-                        url: "https://docs.google.com/spreadsheets/d/1f6iEGTjnY56zYyXyzs8J7zct7qf7tPKP/edit?usp=drive_link&ouid=107455283263421670283&rtpof=true&sd=true",
+                        url: "https://docs.google.com/spreadsheets/d/1GgHoICEnjlQlBA6RcmIblBtZGWmos3mQ/edit?usp=sharing&ouid=103193794838078583968&rtpof=true&sd=true",
                         external: true
                     }
                 ]
