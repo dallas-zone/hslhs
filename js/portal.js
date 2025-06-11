@@ -40,14 +40,14 @@ const resources = {
                         title: "HSLHS Church Chairpersons Terms of Reference",
                         description: "Guidelines and responsibilities for chairpersons.",
                         type: "doc", // Assuming it's a document
-                        url: "https://docs.google.com/spreadsheets/d/1RcZ6QRc1x1XqVr7IAONfS0QOzUL4q041/edit?usp=drive_link&ouid=107455283263421670283&rtpof=true&sd=true",
+                        url: "",
                         external: true
                     },
                     {
                         title: "HSLHS Zonal Subcommittee Managers Terms of Reference",
                         description: "Guidelines and responsibilities for subcommittee managers.",
                         type: "doc",
-                        url: "https://docs.google.com/document/d/1tfp4Pj3WVe6yf-7ZkOgQ4ah-zzL5aVCu/edit?usp=drive_link&ouid=107455283263421670283&rtpof=true&sd=true",
+                        url: "",
                         external: true
                     }
                 ]
@@ -58,10 +58,17 @@ const resources = {
                 icon: "fas fa-hands-praying",
                 resources: [
                     {
-                        title: "Zonal Prayer Cloud",
-                        description: "Access the Zonal Prayer Cloud for coordinated prayer sessions.",
+                        title: "Access Prayer Cloud",
+                        description: "Access the Prayer Cloud portal.",
                         type: "link",
-                        url: "https://prayerclouds.org/app/pstlanr",
+                        url: "https://prayerclouds.org/app/signin.php?user=",
+                        external: true
+                    },
+                    {
+                        title: "KingsConference Prayer Platform",
+                        description: "Access the Zonal Prayer Platform on KingsConference for coordinated prayer sessions.",
+                        type: "link",
+                        url: "https://pro2.kingsconference.org/dallas",
                         external: true
                     },
                     {
