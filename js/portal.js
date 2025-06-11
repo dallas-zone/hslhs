@@ -25,7 +25,7 @@ const resources = {
                     {
                         title: "Zonal Committee Structure",
                         description: "Overview of the zonal committee structure for HSLHS.",
-                        type: "JPEG",
+                        type: "jpeg",
                         url: "https://drive.google.com/file/d/1Du2GQEX_1gfaw9ZOwVsP8oEwW-kxYvTi/view?usp=sharing",
                         external: true
                     },
@@ -270,9 +270,9 @@ const resources = {
                     {
                         title: "Type of Partnership Categories",
                         description: "Information about different types of partnership opportunities.",
-                        type: "doc",
+                        type: "jpeg",
                         url: "https://drive.google.com/file/d/1OwH3MVtfW827S8zd3Tk9rYszlN7Qa4hf/view?usp=sharing", // Placeholder - no link provided
-                        informational: true
+                        external: true
                     }
                 ]
             },
@@ -340,7 +340,7 @@ const resources = {
                     {
                         title: "Why You Should Go To Church",
                         description: "Teaching on the importance of church attendance for spiritual growth.",
-                        type: "doc",
+                        type: "jpeg",
                         url: "https://drive.google.com/file/d/1bVxosh1FWG_ScSPrdxHNTOB4rnjYHAZD/view?usp=sharing",
                         external: true
                     },
