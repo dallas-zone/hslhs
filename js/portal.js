@@ -26,7 +26,7 @@ const resources = {
                         title: "Zonal Committee Structure",
                         description: "Overview of the zonal committee structure for HSLHS.",
                         type: "PNG",
-                        url: "https://drive.google.com/file/d/1n3ZDrwnNasCsTaSDFr4Ty-3RA3bKjqWm/view?usp=sharing",
+                        url: "https://drive.google.com/file/d/1Du2GQEX_1gfaw9ZOwVsP8oEwW-kxYvTi/view?usp=sharing",
                         external: true
                     },
                     {
@@ -37,15 +37,15 @@ const resources = {
                         informational: true // Custom flag for info-only items
                     },
                     {
-                        title: "HSLHS Chairpersons and Terms of Reference",
+                        title: "HSLHS Church Chairpersons Terms of Reference",
                         description: "Guidelines and responsibilities for chairpersons.",
                         type: "doc", // Assuming it's a document
                         url: "https://docs.google.com/spreadsheets/d/1RcZ6QRc1x1XqVr7IAONfS0QOzUL4q041/edit?usp=drive_link&ouid=107455283263421670283&rtpof=true&sd=true",
                         external: true
                     },
                     {
-                        title: "HSLHS Sub-Committee Managers and Terms of Reference",
-                        description: "Guidelines and responsibilities for sub-committee managers.",
+                        title: "HSLHS Zonal Subcommittee Managers Terms of Reference",
+                        description: "Guidelines and responsibilities for subcommittee managers.",
                         type: "doc",
                         url: "https://docs.google.com/document/d/1tfp4Pj3WVe6yf-7ZkOgQ4ah-zzL5aVCu/edit?usp=drive_link&ouid=107455283263421670283&rtpof=true&sd=true",
                         external: true
@@ -68,7 +68,7 @@ const resources = {
                         title: "Zonal Prayer Schedule",
                         description: "Complete schedule for all prayer sessions before and during HSLHS.",
                         type: "doc", // Assuming PDF or Doc
-                        url: "https://drive.google.com/file/d/1WUi9nGxfUa22-mDxtMPFbpdK5i3U8fFi/view?usp=drive_link",
+                        url: "",
                         external: true
                     }
                 ]
