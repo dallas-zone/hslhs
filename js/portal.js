@@ -270,7 +270,7 @@ const resources = {
                     {
                         title: "Type of Partnership Categories",
                         description: "Information about different types of partnership opportunities.",
-                        type: "JPEG",
+                        type: "doc",
                         url: "https://drive.google.com/file/d/1OwH3MVtfW827S8zd3Tk9rYszlN7Qa4hf/view?usp=sharing", // Placeholder - no link provided
                         informational: true
                     }
