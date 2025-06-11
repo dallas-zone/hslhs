@@ -434,7 +434,7 @@ const resources = {
                         type: "pdf",
                         url: "https://drive.google.com/file/d/1EzQL26xbtf2ahhFt78FUdxLs1hIlkH2v/view?usp=sharing", // Placeholder
                         external: true
-                    },
+                    }
                     // {
                     //     title: "2025 March Edition",
                     //     description: "Insights and lessons from the March 2025 edition of Healing Streams.",
