@@ -327,7 +327,7 @@ const resources = {
         categories: [
             {
                 id: "retainership",
-                title: "Tools for Retainership",
+                title: "Tools for Soul Retention",
                 icon: "fas fa-hand-holding-heart",
                 resources: [
                     {
