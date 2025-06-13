@@ -327,16 +327,9 @@ const resources = {
         categories: [
             {
                 id: "retainership",
-                title: "Tips for Retainership",
+                title: "Tools for Retainership",
                 icon: "fas fa-hand-holding-heart",
                 resources: [
-                    // {
-                    //     title: "Retainership Guidelines",
-                    //     description: "Guidelines for retaining participants after the Healing Streams program.",
-                    //     type: "doc",
-                    //     url: "https://docs.google.com/document/d/1y7kTm9gJB-iquR3KYNfWlVyfDGhsx-y9rEFXpNJNZOU/edit?usp=sharing",
-                    //     external: true
-                    // },
                     {
                         title: "Foundation School Promo",
                         description: "Promotional video for the Foundation School program.",
@@ -345,10 +338,17 @@ const resources = {
                         external: true
                     },
                     {
-                        title: "Cell Ministry",
+                        title: "Cell Ministry TV",
                         description: "Resources and videos for cell ministry activities.",
                         type: "link",
                         url: "https://cellministry.tv",
+                        external: true
+                    },
+                    {
+                        title: "Cell Ministry Manual (Revised)",
+                        description: "Manual for cell ministry activities.",
+                        type: "pdf",
+                        url: "https://drive.google.com/file/d/119ShIkVW3tP-WZmIA5s5kUUVe3ga_ezz/view?usp=sharing",
                         external: true
                     }
                 ]
