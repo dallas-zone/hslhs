@@ -245,13 +245,6 @@ const resources = {
                         type: "png",
                         url: "https://drive.google.com/file/d/1T2W3_0xXd5UwQ2kqixD0TkbNcVz-blk2/view?usp=sharing",
                         external: true
-                    },
-                    {
-                        title: "Set Targets",
-                        description: "Submit program targets for tracking.",
-                        type: "link",
-                        url: "https://www.kingsforms.online/dallaszone-hslhs-targets",
-                        external: true
                     }
                 ]
             }
