@@ -5,6 +5,7 @@
  * - Theme toggle functionality
  * - Landing page interactions
  * - Stats animation
+ * - Portal card interactions (Resources, Reports, Admin)
  */
 
 // DOM Elements and Global Variables
@@ -66,6 +67,9 @@ function setupLandingPage() {
     
     // Setup portal card interactions
     setupCardInteractions();
+    
+    // Track portal card clicks
+    setupPortalCardTracking();
 }
 
 /**
@@ -119,6 +123,43 @@ function setupCardInteractions() {
 }
 
 /**
+ * Setup portal card click tracking
+ */
+function setupPortalCardTracking() {
+    const portalItems = document.querySelectorAll('.portal-item');
+    
+    portalItems.forEach(item => {
+        const link = item.querySelector('.card-cta-button');
+        if (link) {
+            link.addEventListener('click', function(e) {
+                const cardType = item.classList.contains('resources') ? 'resources' :
+                               item.classList.contains('reports') ? 'reports' :
+                               item.classList.contains('admin') ? 'admin' : 'unknown';
+                
+                const cardTitle = item.querySelector('h2').textContent;
+                
+                // Track with Google Analytics
+                trackEvent('portal_card_click', cardType, cardTitle);
+                
+                // Add visual feedback
+                const button = this;
+                const originalText = button.innerHTML;
+                
+                // Show loading state
+                button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+                button.style.pointerEvents = 'none';
+                
+                // Reset after a short delay (visual feedback)
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.style.pointerEvents = 'auto';
+                }, 1000);
+            });
+        }
+    });
+}
+
+/**
  * Toggle between light and dark theme
  */
 function toggleTheme() {
@@ -127,7 +168,7 @@ function toggleTheme() {
     localStorage.setItem('theme', currentTheme);
     
     // Track theme change
-    trackEvent('theme_change', currentTheme, '');
+    trackEvent('theme_change', 'user_preference', currentTheme);
 }
 
 /**
@@ -165,16 +206,117 @@ function saveUserData(userData) {
  * @param {string} action - Event action
  * @param {string} category - Event category
  * @param {string} label - Event label
+ * @param {Object} customData - Additional custom data
  */
-function trackEvent(action, category, label) {
+function trackEvent(action, category, label, customData = {}) {
     // Check if gtag is available
     if (typeof gtag === 'function') {
         gtag('event', action, {
             'event_category': category,
-            'event_label': label
+            'event_label': label,
+            ...customData
         });
     }
     
     // Log to console in development
-    console.log(`Event tracked: ${action}, ${category}, ${label}`);
+    console.log(`Event tracked: ${action}, ${category}, ${label}`, customData);
 }
+
+/**
+ * Show a toast notification
+ * @param {string} message - Message to display
+ * @param {string} type - Type of notification ('success', 'error', 'info', 'warning')
+ * @param {number} duration - Duration in milliseconds
+ */
+function showToast(message, type = 'info', duration = 3000) {
+    const toastContainer = document.getElementById('toast-container');
+    if (!toastContainer) {
+        console.warn('Toast container not found');
+        return;
+    }
+    
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    
+    let icon = '';
+    let backgroundColor = '';
+    
+    switch(type) {
+        case 'success':
+            icon = '<i class="fas fa-check-circle"></i>';
+            backgroundColor = 'rgba(76, 175, 80, 0.9)';
+            break;
+        case 'error':
+            icon = '<i class="fas fa-exclamation-circle"></i>';
+            backgroundColor = 'rgba(244, 67, 54, 0.9)';
+            break;
+        case 'warning':
+            icon = '<i class="fas fa-exclamation-triangle"></i>';
+            backgroundColor = 'rgba(255, 193, 7, 0.9)';
+            break;
+        case 'info':
+        default:
+            icon = '<i class="fas fa-info-circle"></i>';
+            backgroundColor = 'rgba(13, 33, 161, 0.9)';
+    }
+    
+    toast.style.backgroundColor = backgroundColor;
+    toast.style.color = 'white';
+    toast.style.padding = '12px 20px';
+    toast.style.borderRadius = '8px';
+    toast.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
+    toast.style.fontSize = '14px';
+    toast.style.display = 'flex';
+    toast.style.alignItems = 'center';
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateY(20px)';
+    toast.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+    toast.style.maxWidth = '300px';
+    
+    toast.innerHTML = `<span style="margin-right: 10px;">${icon}</span> ${message}`;
+    
+    toastContainer.appendChild(toast);
+    
+    setTimeout(() => {
+        toast.style.opacity = '1';
+        toast.style.transform = 'translateY(0)';
+    }, 10);
+    
+    setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(20px)';
+        setTimeout(() => {
+            if (toast.parentNode) {
+                toast.parentNode.removeChild(toast);
+            }
+        }, 300);
+    }, duration);
+}
+
+/**
+ * Get device and browser information for analytics
+ * @returns {Object} Device and browser information
+ */
+function getDeviceInfo() {
+    return {
+        userAgent: navigator.userAgent,
+        language: navigator.language,
+        platform: navigator.platform,
+        screenWidth: screen.width,
+        screenHeight: screen.height,
+        viewportWidth: window.innerWidth,
+        viewportHeight: window.innerHeight,
+        deviceType: window.innerWidth <= 768 ? 'mobile' : 
+                   window.innerWidth <= 1024 ? 'tablet' : 'desktop'
+    };
+}
+
+// Export functions for global use
+window.healingStreamsApp = {
+    applyTheme,
+    toggleTheme,
+    saveUserData,
+    trackEvent,
+    showToast,
+    getDeviceInfo
+};

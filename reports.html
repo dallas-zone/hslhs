@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Reports | Healing Streams Dallas Zone</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/portal-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="images/logo.png">
+    <meta name="description" content="Submit your Pre-HSLHS targets, program reports, and post-consolidation data through the Healing Streams Live Healing Services - Dallas Zone reporting portal.">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6D5BP47Y6G"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-6D5BP47Y6G');
+    </script>
+</head>
+<body class="loading">
+    <div class="theme-toggle">
+        <button id="theme-switch" aria-label="Toggle dark/light mode">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+    
+    <div id="reports-container" class="portal-container">
+        <a href="index.html" class="portal-back-link">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+        
+        <div class="quick-nav-menu" id="quick-nav-menu">
+            <button class="quick-nav-toggle" id="quick-nav-toggle">
+                <i class="fas fa-list"></i>
+                <span>Quick Menu</span>
+            </button>
+            <div class="quick-nav-dropdown" id="quick-nav-dropdown">
+                <div class="quick-nav-header">
+                    <h4>Jump to Section</h4>
+                    <button class="close-quick-nav" id="close-quick-nav">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="quick-nav-items">
+                    <a href="#pre-hslhs-reports-section" class="quick-nav-item" data-section="pre-hslhs-reports">
+                        <div class="nav-item-icon pre-hslhs">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="nav-item-content">
+                            <h5>Pre-HSLHS Reports</h5>
+                            <p>Target submission forms</p>
+                        </div>
+                        <i class="fas fa-arrow-right nav-item-arrow"></i>
+                    </a>
+                    <a href="#hslhs-program-reports-section" class="quick-nav-item" data-section="hslhs-program-reports">
+                        <div class="nav-item-icon hslhs-program">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                        <div class="nav-item-content">
+                            <h5>HSLHS Program Reports</h5>
+                            <p>Program activity reports</p>
+                        </div>
+                        <i class="fas fa-arrow-right nav-item-arrow"></i>
+                    </a>
+                    <a href="#post-hslhs-reports-section" class="quick-nav-item" data-section="post-hslhs-reports">
+                        <div class="nav-item-icon post-hslhs">
+                            <i class="fas fa-file-contract"></i>
+                        </div>
+                        <div class="nav-item-content">
+                            <h5>Post-HSLHS Reports</h5>
+                            <p>Consolidation & follow-up</p>
+                        </div>
+                        <i class="fas fa-arrow-right nav-item-arrow"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <header class="portal-header">
+            <div class="animated-logo">
+                <img src="images/logo.png" alt="Healing Streams Logo" class="logo">
+                <div class="logo-aura"></div>
+            </div>
+            <h1>Submit Reports</h1>
+            <p>Submit your targets, program reports, and consolidation data for Healing Streams Live Healing Services (HSLHS)</p>
+        </header>
+        
+        <div class="portal-card">
+            <div id="reports-main-container" class="reports-section">
+                <div class="section-intro">
+                    <h2 class="section-title">Reporting Portal</h2>
+                    <p class="section-description">Use the forms below to submit your reports for each phase of the Healing Streams program. Select the appropriate section and fill out the required information.</p>
+                </div>
+
+                <section id="pre-hslhs-reports-section" class="portal-phase-section">
+                    <h2 class="section-title">Pre-HSLHS Reports</h2>
+                    <div id="pre-hslhs-reports-wrapper" class="reports-wrapper">
+                        <div class="report-category">
+                            <div class="category-header">
+                                <h3 class="category-title">
+                                    <i class="fas fa-bullseye"></i>
+                                    <span>Target Setting & Planning</span>
+                                </h3>
+                            </div>
+                            <div class="reports-list">
+                                <div class="report-item">
+                                    <div class="report-content">
+                                        <div class="report-icon">
+                                            <i class="fas fa-chart-line"></i>
+                                        </div>
+                                        <div class="report-details">
+                                            <h4 class="report-title">HSLHS Targets Submission</h4>
+                                            <p class="report-description">Submit your church's targets for the upcoming Healing Streams program including attendance goals, participation metrics, and preparation milestones.</p>
+                                            <div class="report-meta">
+                                                <span class="report-type">FORM</span>
+                                                <span class="report-status">ACTIVE</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="report-actions">
+                                        <button class="submit-report-btn" data-form-url="https://v2.kingsforms.online/dallaszone-hslhs-targets" title="Submit Targets">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            <span>Submit Form</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="hslhs-program-reports-section" class="portal-phase-section">
+                    <h2 class="section-title">HSLHS Program Reports</h2>
+                    <div id="hslhs-program-reports-wrapper" class="reports-wrapper">
+                        <div class="report-category">
+                            <div class="category-header">
+                                <h3 class="category-title">
+                                    <i class="fas fa-clipboard-check"></i>
+                                    <span>Program Activity Reports</span>
+                                </h3>
+                            </div>
+                            <div class="reports-list">
+                                <div class="report-item">
+                                    <div class="report-content">
+                                        <div class="report-icon">
+                                            <i class="fas fa-users"></i>
+                                        </div>
+                                        <div class="report-details">
+                                            <h4 class="report-title">Program Participation Report</h4>
+                                            <p class="report-description">Report attendance figures, participation metrics, and real-time program activities during the Healing Streams event.</p>
+                                            <div class="report-meta">
+                                                <span class="report-type">FORM</span>
+                                                <span class="report-status">COMING SOON</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="report-actions">
+                                        <button class="submit-report-btn coming-soon" title="Form Coming Soon">
+                                            <i class="fas fa-clock"></i>
+                                            <span>Coming Soon</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="report-item">
+                                    <div class="report-content">
+                                        <div class="report-icon">
+                                            <i class="fas fa-tv"></i>
+                                        </div>
+                                        <div class="report-details">
+                                            <h4 class="report-title">Viewership Report</h4>
+                                            <p class="report-description">Submit viewership numbers, streaming statistics, and engagement metrics for your center's participation.</p>
+                                            <div class="report-meta">
+                                                <span class="report-type">FORM</span>
+                                                <span class="report-status">COMING SOON</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="report-actions">
+                                        <button class="submit-report-btn coming-soon" title="Form Coming Soon">
+                                            <i class="fas fa-clock"></i>
+                                            <span>Coming Soon</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="post-hslhs-reports-section" class="portal-phase-section">
+                    <h2 class="section-title">Post-HSLHS Reports</h2>
+                    <div id="post-hslhs-reports-wrapper" class="reports-wrapper">
+                        <div class="report-category">
+                            <div class="category-header">
+                                <h3 class="category-title">
+                                    <i class="fas fa-heart-pulse"></i>
+                                    <span>Consolidation & Follow-up</span>
+                                </h3>
+                            </div>
+                            <div class="reports-list">
+                                <div class="report-item">
+                                    <div class="report-content">
+                                        <div class="report-icon">
+                                            <i class="fas fa-hands-praying"></i>
+                                        </div>
+                                        <div class="report-details">
+                                            <h4 class="report-title">Testimonies & Healings Report</h4>
+                                            <p class="report-description">Submit testimonies of healings, miracles, and life transformations that occurred during and after the program.</p>
+                                            <div class="report-meta">
+                                                <span class="report-type">FORM</span>
+                                                <span class="report-status">COMING SOON</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="report-actions">
+                                        <button class="submit-report-btn coming-soon" title="Form Coming Soon">
+                                            <i class="fas fa-clock"></i>
+                                            <span>Coming Soon</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="report-item">
+                                    <div class="report-content">
+                                        <div class="report-icon">
+                                            <i class="fas fa-chart-bar"></i>
+                                        </div>
+                                        <div class="report-details">
+                                            <h4 class="report-title">Consolidation Report</h4>
+                                            <p class="report-description">Report on follow-up activities, new member integration, cell formation, and ongoing ministry impact.</p>
+                                            <div class="report-meta">
+                                                <span class="report-type">FORM</span>
+                                                <span class="report-status">COMING SOON</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="report-actions">
+                                        <button class="submit-report-btn coming-soon" title="Form Coming Soon">
+                                            <i class="fas fa-clock"></i>
+                                            <span>Coming Soon</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <div class="return-button">
+                    <a href="index.html">
+                        <i class="fas fa-home"></i> Return to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="site-footer">
+        <div class="footer-main">
+            <div class="footer-container">
+                <div class="footer-brand">
+                    <img src="images/logo.png" alt="Healing Streams Logo" class="footer-logo">
+                    <p>The Healing Ministry of Rev. Chris Oyakhilome D.Sc., D.Sc., D.D.</p>
+                </div>
+                
+                <div class="footer-links-grid">
+                    <div class="footer-column">
+                        <h4>Trainings</h4>
+                        <ul class="footer-links">
+                            <li><a href="https://www.training.hslhs.org/" target="_blank"><i class="fas fa-external-link-alt"></i>HSLHS Training Portal</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4>Platforms</h4>
+                        <ul class="footer-links">
+                            <li><a href="https://pro2.kingsconference.org/dallas" target="_blank"><i class="fas fa-external-link-alt"></i>Zonal Prayer KingsConference</a></li>
+                            <li><a href="http://herald.healingstreams.tv" target="_blank"><i class="fas fa-bullhorn"></i> Be a HERALD</a></li>
+                            <li><a href="http://healingstreams.tv/" target="_blank"><i class="fas fa-external-link-alt"></i> Healing Streams TV</a></li>
+                            <li><a href="http://mystreamspace.org" target="_blank"><i class="fas fa-external-link-alt"></i> MyStreamSpace</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Ministry Materials</h4>
+                        <ul class="footer-links">
+                            <li><a href="https://httnmagazine.org/" target="_blank"><i class="fas fa-external-link-alt"></i> HTTN Magazine</a></li>
+                            <li><a href="https://www.nowthatyouarebornagain.org/" target="_blank"><i class="fas fa-book"></i> Now That You Are Born Again</a></li>
+                            <li><a href="https://app.rhapsodyofrealities.org/" target="_blank"><i class="fas fa-book-open"></i> Rhapsody of Realities</a></li>
+                            <li><a href="https://pcdl.co/" target="_blank"><i class="fas fa-book-reader"></i> Pastor Chris Digital Library (PCDL)</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4>Join Chat Group</h4>
+                        <ul class="footer-links">
+                            <li><a href="https://kingschat.online/conversations/NjIxMDgyOWUwODQ0ZGYwMDA3YTEzZjgx" target="_blank"><img src="images/kingschat.png" alt="KingsChat" class="kingschat-logo"> KingsChat</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-container">
+                <div class="footer-copyright">
+                    <p>&copy; <span id="current-year"></span> Healing Streams Live Healing Services. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <div id="toast-container" class="toast-container"></div>
+    
+    <script src="vendor/form.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/reports.js"></script>
+    
+    <style>
+        /* Additional styles specific to reports portal */
+        .section-intro {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(13, 33, 161, 0.05), rgba(209, 176, 0, 0.05));
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(13, 33, 161, 0.1);
+        }
+        
+        .dark-theme .section-intro {
+            background: linear-gradient(135deg, rgba(51, 71, 196, 0.1), rgba(209, 176, 0, 0.1));
+            border-color: rgba(51, 71, 196, 0.2);
+        }
+        
+        .section-description {
+            font-size: 16px;
+            color: var(--muted-text);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .reports-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            padding-top: 10px;
+        }
+
+        .report-category {
+            background-color: var(--card-background);
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .report-category:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(13, 33, 161, 0.1);
+        }
+
+        .reports-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .report-item {
+            background-color: var(--card-background);
+            border-radius: var(--border-radius-sm);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .dark-theme .report-item {
+            border-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .report-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .report-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gradient-primary);
+            opacity: 0.7;
+        }
+
+        .report-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 20px;
+            flex: 1;
+        }
+
+        .report-icon {
+            width: 50px;
+            height: 50px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            color: white;
+            box-shadow: 0 4px 12px rgba(13, 33, 161, 0.2);
+        }
+
+        .report-details {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .report-title {
+            margin: 0 0 8px;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .report-description {
+            font-size: 14px;
+            color: var(--muted-text);
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .report-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .report-type, .report-status {
+            font-size: 10px;
+            padding: 4px 8px;
+            border-radius: 12px;
+            display: inline-block;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .report-type {
+            background-color: rgba(13, 33, 161, 0.1);
+            color: var(--primary-color);
+        }
+
+        .report-status {
+            background-color: rgba(40, 167, 69, 0.1);
+            color: #28a745;
+        }
+
+        .report-item .report-status:contains("COMING SOON") {
+            background-color: rgba(255, 193, 7, 0.1);
+            color: #ffc107;
+        }
+
+        .dark-theme .report-type {
+            background-color: rgba(51, 71, 196, 0.2);
+        }
+
+        .report-actions {
+            display: flex;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            background-color: var(--card-background);
+        }
+
+        .dark-theme .report-actions {
+            border-top-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .submit-report-btn {
+            flex: 1;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: var(--transition-fast);
+            cursor: pointer;
+            border-radius: 0;
+        }
+
+        .submit-report-btn:hover {
+            background: var(--gradient-secondary);
+            transform: none;
+            box-shadow: none;
+        }
+
+        .submit-report-btn.coming-soon {
+            background: linear-gradient(135deg, #6c757d, #5a6268);
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .submit-report-btn.coming-soon:hover {
+            background: linear-gradient(135deg, #6c757d, #5a6268);
+            transform: none;
+        }
+
+        .submit-report-btn i {
+            font-size: 14px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .report-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .report-icon {
+                margin-bottom: 10px;
+            }
+
+            .section-intro {
+                padding: 20px;
+            }
+
+            .submit-report-btn {
+                padding: 12px 15px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</body>
+</html>
