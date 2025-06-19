@@ -224,6 +224,13 @@ const resources = {
                         type: "jpeg",
                         url: "https://drive.google.com/file/d/1OwH3MVtfW827S8zd3Tk9rYszlN7Qa4hf/view?usp=sharing", // Placeholder - no link provided
                         external: true
+                    },
+                    {
+                        title: "Church Partnership Targets",
+                        description: "Target amounts assigned churches for this edition of HSLHS.",
+                        type: "link",
+                        url: "https://docs.google.com/spreadsheets/d/1N_NXfglM24mkaRlq1okW97xvt0ZhdSZo/edit?usp=sharing&ouid=103193794838078583968&rtpof=true&sd=true", // Placeholder - no link provided
+                        external: true
                     }
                 ]
             },
