@@ -140,6 +140,13 @@ const resources = {
                         type: "jpeg",
                         url: "https://drive.google.com/file/d/1RnD6qfcy9M8wk8SGsWNRHMjLDBAxdoMM/view?usp=sharing",
                         external: true
+                    },
+                    {
+                        title: "Church Launch Talkshow Script",
+                        description: "Script and resources for holding talkshow during church launch.",
+                        type: "link",
+                        url: "https://drive.google.com/file/d/10Ewx8ZwkUhVBcyVCAAoNVAHT6zXU8VWt/view?usp=sharing",
+                        external: true
                     }
                 ]
             },
