@@ -74,8 +74,8 @@ const resources = {
                     {
                         title: "Zonal Prayer Schedule",
                         description: "Complete schedule for all prayer sessions before, during and after HSLHS.",
-                        type: "png", // Assuming PDF or Doc
-                        url: "https://drive.google.com/file/d/1TyI2OgVufhTBUEsn2biXyz5irkPwXt_f/view?usp=sharing",
+                        type: "jpeg", // Assuming PDF or Doc
+                        url: "https://drive.google.com/file/d/1Y-mmBdjJYBJylfC4jSp8tPCJ496ZIxNu/view?usp=sharing",
                         external: true
                     }
                 ]
