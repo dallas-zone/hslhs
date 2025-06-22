@@ -66,7 +66,7 @@ const resources = {
                     },
                     {
                         title: "KingsConference Prayer Platform",
-                        description: "Access the Zonal Prayer Platform on KingsConference for coordinated prayer sessions.",
+                        description: "Access the Zonal Prayer Platform on KingsConference for streaming of prayer sessions.",
                         type: "link",
                         url: "https://pro2.kingsconference.org/dallas",
                         external: true
