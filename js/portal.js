@@ -177,10 +177,17 @@ const resources = {
                 icon: "fas fa-graduation-cap",
                 resources: [
                     {
-                        title: "Training Portal",
-                        description: "Comprehensive training materials for HSLHS preparation.",
+                        title: "Training Organized by Healing School",
+                        description: "Comprehensive training materials for HSLHS preparation. Organized by the Healing School",
                         type: "link",
                         url: "https://www.training.hslhs.org/",
+                        external: true
+                    },
+                    {
+                        title: "Training orgnsized by Church Growth International (CGI)",
+                        description: "Comprehensive training materials for HSLHS preparation. Organized by Church Growth International (CGI)",
+                        type: "link",
+                        url: "https://docs.google.com/document/d/1_g7X28QWIISfa_tsj_OVe3bi0PwsXNE6sXUhl1TGG7A/edit?usp=sharing",
                         external: true
                     }
                 ]
