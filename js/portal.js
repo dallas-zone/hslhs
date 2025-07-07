@@ -184,7 +184,7 @@ const resources = {
                         external: true
                     },
                     {
-                        title: "Training orgnsized by Church Growth International (CGI)",
+                        title: "Training Organized by Church Growth International (CGI)",
                         description: "Comprehensive training materials for HSLHS preparation. Organized by Church Growth International (CGI)",
                         type: "link",
                         url: "https://docs.google.com/document/d/1_g7X28QWIISfa_tsj_OVe3bi0PwsXNE6sXUhl1TGG7A/edit?usp=sharing",
