@@ -254,6 +254,13 @@ const resources = {
                 icon: "fas fa-tasks",
                 resources: [
                     {
+                        title: "HSLHS Preparedness Checklist",
+                        description: "Step-by-step checklist for preparing for HSLHS.",
+                        type: "doc",
+                        url: "https://docs.google.com/document/d/1BQ_eBjggs0_vxf1ak99NBs17Qa-cra2PjGKOq41M-pw/edit?usp=sharing",
+                        external: true
+                    },
+                    {
                         title: "Checklist for Planning and Completing the HSLHS Reports",
                         description: "Step-by-step checklist for planning and completing program reports.",
                         type: "doc",
