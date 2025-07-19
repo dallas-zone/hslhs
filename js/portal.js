@@ -327,7 +327,7 @@ const resources = {
                         title: "Testimony Bank",
                         description: "Collection of testimonies from Healing Streams programs.",
                         type: "doc",
-                        url: "https://drive.google.com/file/d/1yLnD0naZ8UIqWS3X2JYhOPZiHKt-B_sD/view?usp=sharing",
+                        url: "https://docs.google.com/spreadsheets/d/1bkZ9JBwgiFpaaGwGUm7VRSRIXZyiyMim1t5nu2U00IM/edit?usp=sharing",
                         external: true
                     },
                     {
