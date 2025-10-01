@@ -119,6 +119,13 @@ const resources = {
                         type: "doc",
                         url: "https://docs.google.com/document/d/1Wtcbk2JbmRL_wLZzUpQnnTYOgN7kC4zG1E2mX-qk6ZQ/edit?usp=sharing",
                         external: true
+                    },
+                    {
+                        title: "14-Day Healing Program",
+                        description: "A 14-Day Faith Clinic Program.",
+                        type: "jpeg",
+                        url: "https://drive.google.com/file/d/1QVsJLh7t462NSUG2gsxUpJpZTYDve54U/view?usp=sharing",
+                        external: true
                     }
                 ]
             },
@@ -331,8 +338,8 @@ const resources = {
                         external: true
                     },
                     {
-                        title: "Viewership Report",
-                        description: "Template for reporting viewership statistics for the program.",
+                        title: "Attendance Report",
+                        description: "Template for reporting attendance statistics for the program onsite and online.",
                         type: "doc", // Assuming spreadsheet
                         url: "https://docs.google.com/spreadsheets/d/1GgHoICEnjlQlBA6RcmIblBtZGWmos3mQ/edit?usp=sharing&ouid=103193794838078583968&rtpof=true&sd=true",
                         external: true
